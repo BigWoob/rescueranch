@@ -74,6 +74,7 @@ DROP TABLE IF EXISTS pets;
 CREATE TABLE pets (
 	pet_id serial,
 	animal_type varchar(50) NOT NULL,
+	gender char(1) NOT NULL,
 	pet_name varchar(50) NOT NULL,
 	breed varchar(50) NOT NULL,
 	age int NOT NULL,
@@ -84,9 +85,24 @@ CREATE TABLE pets (
 	picture_three varchar(250),
 	CONSTRAINT PK_pet PRIMARY KEY (pet_id)
 );
-
-INSERT INTO pets (animal_type,pet_name,breed,age,description) VALUES ('dog','Max','beagle',3,'Max is a good dog. Great with kids and other dogs. Hates cats.');
-INSERT INTO pets (animal_type,pet_name,breed,age) VALUES ('dog','Sam','pug',10);
+--dogs
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES ('dog','m','Max','beagle',3,'Max is a good dog. Great with kids and other dogs. Hates cats.','https://images.unsplash.com/photo-1621219321107-da001e553258?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+INSERT INTO pets (animal_type,gender,pet_name,breed, age) VALUES ('dog','m','Sam','pug', 10);
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,picture_one) VALUES('dog','f','Aurora', 'dachshund', 6,  
+'https://images.unsplash.com/photo-1618265341355-d0e2d1fdf26b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80');
+--cats
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('cat','f','Alice', 'british shorthair', 1, 'Alice the British Shorthair! She is super playful and extremely smart.', 
+'https://images.unsplash.com/photo-1601808881948-aa68248b1df7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('cat','m','Tiger', 'bengal',5, 'Tiger loves to chase toys all around the house!', 
+'https://images.unsplash.com/photo-1598463166261-357c23778812?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1118&q=80');
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('cat', 'f','Jazz', 'siamese',2, 'Jazz is a sweetheart. She can be both playful and cuddly. It will be love at first sight', 
+'https://images.unsplash.com/photo-1568309386325-ef86f13ac533?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
+--other
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('horse', 'f','Oreo', 'appaloosa', 2, 'Oreo is a quick learner with a beautiful black and white pattern. She’s great with kids too!', 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('pig', 'f','Charlotte', 'american landrace', 2, 'Charlotte is very sweet and clean…for a pig', 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('horse', 'm', 'Snowman', 'camarillo white', 3, 'Charlotte is very sweet and clean…for a pig', 'https://images.unsplash.com/photo-1553284965-fa61e9ad4795?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80');
 
 
 COMMIT TRANSACTION;
+
+select * from pets;
