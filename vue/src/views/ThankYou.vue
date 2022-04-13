@@ -1,18 +1,17 @@
 <template>
-   <div>
-      <div class="">
-      <header>
-        <div>
-          <img
-            id="title"
-            class="img-fluid"
-            src="../assets/images/smallerranch.jpg"
-            alt="Title and Slogan"
-            srcset=""
-          />
-        </div>
-      </header>
-      <b-navbar
+  <div>
+    <header>
+      <div>
+        <img
+          id="title"
+          class="img-fluid"
+          src="../assets/images/smallerranch.jpg"
+          alt="Title and Slogan"
+          srcset=""
+        />
+      </div>
+    </header>
+    <b-navbar
       id="nav"
       role="navigation"
       class="navbar 
@@ -48,6 +47,9 @@
         <b-nav-item href="/login" class="nav-item justify-content-end">Login</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
+    <div>
+        <h1>Thank You For Applying!</h1>
+        <h2>Click <a href="/">Here</a> To Return Home</h2>
     </div>
   </div>
 </template>

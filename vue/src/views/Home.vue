@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div>
     <header>
       <div>
         <img
@@ -25,27 +25,26 @@
       navbar-custom"
     >
       <b-navbar-nav 
-      class="d-flex 
-      justify-content-center">
-        <b-nav-item href="/">Home</b-nav-item>
+      class="d-flex justify-content-center">
+      <b-nav-item href="/" class="nav-item justify-content-end">Home</b-nav-item>
 
         <b-nav-item-dropdown text="Adopt" right class="nav-item">
-          <b-dropdown-item href="/AllPets">See All Pets</b-dropdown-item>
+          <b-dropdown-item href="/AllPets">See All Animals</b-dropdown-item>
           <b-dropdown-item href="/Cats">Cats and Kittens</b-dropdown-item>
           <b-dropdown-item href="/Dogs">Dogs and Puppies</b-dropdown-item>
           <b-dropdown-item href="/Others">Other Animals</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown text="Volunteer" right>
-          <b-dropdown-item href="/ApplyToVolunteer">Join Us</b-dropdown-item>
+          <b-dropdown-item href="/ApplyToVolunteer">Join The Team</b-dropdown-item>
           <b-dropdown-item href="https://www.linkedin.com/in/joe-righetti/">Meet The Team</b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item href="#A">About Us</b-nav-item>
+        <b-nav-item class="mr-auto" href="#A">About Us</b-nav-item>
 
-        <b-nav-item href="/login" class="nav-item">Login</b-nav-item>
+        <a class="nav-link" href="/dono"><i class="fa fa-heart"></i> Donate<span class="sr-only">(current)</span></a>
 
-        <b-nav-item href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">Donate</b-nav-item>
+        <b-nav-item href="/login" class="nav-item justify-content-end">Login</b-nav-item>
       </b-navbar-nav>
     </b-navbar>
 
@@ -110,7 +109,7 @@
               col-xl-12 
               col-xxl-12"
           >
-          <a href="AllPets"><h2 class="subyellow">Adopt a Pet Today!</h2></a>
+          <a class="yunderline" href="AllPets"><h2 class="subyellow">Adopt a Pet Today!</h2></a>
           </div>
           <div class="d-flex 
           justify-content-space-evenly">
@@ -122,7 +121,7 @@
                   alt=""
                   srcset=""
                 />
-                <a href="Cats"><h2 class="subyellow">Cats</h2></a>
+                <a class="yunderline" href="Cats"><h2 class="subyellow">Cats</h2></a>
               </div>
             </div>
             <div class="row adopt">
@@ -133,7 +132,7 @@
                   alt=""
                   srcset=""
                 />
-                <a href="Dogs"><h2 class="subyellow">Dogs</h2></a>
+                <a class="yunderline" href="Dogs"><h2 class="subyellow">Dogs</h2></a>
               </div>
             </div>
             <div class="row adopt">
@@ -144,7 +143,7 @@
                   alt=""
                   srcset=""
                 />
-                <a href="Others"><h2 class="subyellow">Other Animals</h2></a>
+                <a class="yunderline" href="Others"><h2 class="subyellow">Other Animals</h2></a>
               </div>
             </div>
           </div>
@@ -173,6 +172,7 @@
       “When you look into the eyes of an animal you’ve rescued, you can’t help but fall in love.” — <a class="paul" href="https://en.wikipedia.org/wiki/Paul_Shaffer"> Paul Shaffer</a>
       </div>
     </footer>
+
   </div>
 </template>
 
@@ -189,7 +189,10 @@ export default {};
   border: 10px solid rgb(255, 255, 230);
   border-radius: 50px;
   overflow: hidden;
+}
 
+.nav-link, span {
+  font-size: large;
 }
 
 .row-director {
@@ -233,12 +236,20 @@ export default {};
   padding: 1px 5px 1px 5px;
 }
 
+.dropdown {
+  color: rgb(255, 255, 230);
+  background-color: rgb(155, 34, 38);
+}
+
 h2 {
   text-align: center;
   color: rgb(155, 34, 38);
   text-shadow: 2px black;
   padding: 15px;
-  text-shadow: black 1px 0px 0px, black 0.540302px 0.841471px 0px, black -0.416147px 0.909297px 0px, black -0.989992px 0.14112px 0px, black -0.653644px -0.756802px 0px, black 0.283662px -0.958924px 0px, black 0.96017px -0.279416px 0px;
+  text-shadow: black 1px 0px 0px, black 0.540302px 0.841471px 0px,
+    black -0.416147px 0.909297px 0px, black -0.989992px 0.14112px 0px,
+    black -0.653644px -0.756802px 0px, black 0.283662px -0.958924px 0px,
+    black 0.96017px -0.279416px 0px;
 }
 
 .d-flex {
@@ -266,8 +277,27 @@ h2 {
   text-align: center;
 }
 
+body {
+  background: rgb(255, 255, 230);
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
 .paul {
   color: black;
 }
 
+.paul:hover {
+  color: rgb(155, 34, 38);
+}
+
+.yunderline:hover {
+  text-decoration-color: rgb(255, 255, 230);
+}
+
+.volunteerform {
+  padding: 10px;
+}
 </style>

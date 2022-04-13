@@ -9,6 +9,8 @@ import Cats from '../views/Cats.vue'
 import Dogs from '../views/Dogs.vue'
 import Others from '../views/Others.vue'
 import ApplyToVolunteer from '../views/ApplyToVolunteer.vue'
+import Dono from '../views/Dono.vue'
+import ThankYou from '../views/ThankYou.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -97,6 +99,22 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
+},
+{
+  path: "/thankyou",
+  name: "thankyou",
+  component: ThankYou,
+  meta: {
+    requiresAuth: false
+  }
+},
+{
+  path: "/dono",
+  name: "dono",
+  component: Dono,
+  meta: {
+    requiresAuth: false
+  }
 },
   ]
 })
