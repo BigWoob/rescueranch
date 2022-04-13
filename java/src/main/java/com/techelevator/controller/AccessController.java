@@ -13,7 +13,7 @@ import java.util.*;
 @RestController
 @CrossOrigin
 public class AccessController {
-
+        // changes made to
         /*
         spring.datasource.username=final_capstone_appuser
         spring.datasource.password=finalcapstone
@@ -31,6 +31,22 @@ public class AccessController {
         public List<Pet> getAllPets(){
             return petDao.findAll();
         }
+
+        @PermitAll
+        @RequestMapping(value = "/dogs", method = RequestMethod.GET)
+        public List<Pet> getAllDogs(){
+        return petDao.findAllDogs();
+    }
+
+        @PermitAll
+        @RequestMapping(value = "/cats", method = RequestMethod.GET)
+        public List<Pet> getAllCats(){
+        return petDao.findAllCats();
+    }
+
+        @PermitAll
+        @RequestMapping(value = "/otheranimals", method = RequestMethod.GET)
+        public List<Pet> getAllOtherAnimals(){return petDao.findAllOtherAnimals();}
 
 
 }
