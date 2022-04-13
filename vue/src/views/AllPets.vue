@@ -54,6 +54,25 @@
       <div class="mission">
         <h2 class="subheading">Your New Best Friend!</h2>
       </div>
+
+      <div
+        class="pet d-flex justify-content-space-evenly redback"
+        v-for="pet in pets"
+        v-bind:key="pet.petId"
+      >
+        <div class="row adopt">
+          <div class="col-12 adoptable">
+            <img :src="pet.pictureOne" alt="" srcset="" class="img-fluid" />
+            <h2 class="subyellow">{{ pet.petName }}</h2>
+            <p>Animal Type: {{ pet.animalType }}</p>
+            <p>Sex: {{ pet.animalGender }}</p>
+            <p>Breed: {{ pet.petBreed }}</p>
+            <p>Age:{{ pet.age }}</p>
+            <p>Available: Yes</p>
+          </div>
+        </div>
+      </div>
+
       <div class="d-flex justify-content-space-evenly redback">
         <div class="row adopt">
           <div class="col-12 adoptable">
@@ -109,8 +128,20 @@
 </template>
 
 <script>
+import petService from "../services/PetService";
+
 export default {
+  data() {
+    return {
+      pets: [],
+    };
+  },
+
   created() {
+    petService.getAllPets().then((response) => {
+      this.pets = response.data;
+    });
+
     this.$store.commit("AllPets");
     this.$router.push("/AllPets");
   },

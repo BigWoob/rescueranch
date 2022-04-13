@@ -80,7 +80,7 @@ CREATE TABLE pets (
 	age int NOT NULL,
 	description text DEFAULT 'Description Coming Soon',
 	available boolean DEFAULT true, 
-	picture_one varchar(250) DEFAULT 'animal-shelter-manager\photos\ComingSoon.png',
+	picture_one varchar(250) DEFAULT 'https://1.bp.blogspot.com/-AzSTfPrkhSY/WkrdSHwgxkI/AAAAAAAAARI/L_3p6sG_CK8UgGpgXyTRXaKtG9O7KUCWACLcBGAs/s320/unnamed.png',
 	picture_two varchar(250),
 	picture_three varchar(250),
 	CONSTRAINT PK_pet PRIMARY KEY (pet_id)
@@ -98,9 +98,9 @@ INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one)
 INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('cat', 'f','Jazz', 'siamese',2, 'Jazz is a sweetheart. She can be both playful and cuddly. It will be love at first sight', 
 'https://images.unsplash.com/photo-1568309386325-ef86f13ac533?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80');
 --other
-INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('horse', 'f','Oreo', 'appaloosa', 2, 'Oreo is a quick learner with a beautiful black and white pattern. She’s great with kids too!', 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('horse', 'f','Chocolate', 'appaloosa', 2, 'Chocolate is a quick learner with a beautiful brown pattern. She’s great with kids too!', 'https://images.unsplash.com/photo-1518713337836-f828c91becc0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80');
 INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('pig', 'f','Charlotte', 'american landrace', 2, 'Charlotte is very sweet and clean…for a pig', 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
-INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('horse', 'm', 'Snowman', 'camarillo white', 3, 'Charlotte is very sweet and clean…for a pig', 'https://images.unsplash.com/photo-1553284965-fa61e9ad4795?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80');
+INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('horse', 'm', 'Snowman', 'camarillo white', 3, 'Snowman is a gentle giant. He is a vegan.', 'https://images.unsplash.com/photo-1553284965-fa61e9ad4795?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80');
 
 
 COMMIT TRANSACTION;
