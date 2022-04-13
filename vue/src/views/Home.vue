@@ -14,9 +14,19 @@
     <b-navbar
       id="nav"
       role="navigation"
-      class="navbar bd-navbar flex-column flex-md-row navbar-dark navbar-expand nav-item sticky-top navbar-custom"
+      class="navbar 
+      bd-navbar 
+      flex-column 
+      flex-md-row 
+      navbar-dark 
+      navbar-expand 
+      nav-item 
+      sticky-top 
+      navbar-custom"
     >
-      <b-navbar-nav class="d-flex justify-content-center">
+      <b-navbar-nav 
+      class="d-flex 
+      justify-content-center">
         <b-nav-item href="/">Home</b-nav-item>
 
         <b-nav-item-dropdown text="Adopt" right class="nav-item">
@@ -40,7 +50,7 @@
 
     <body>
       <main>
-        <div class="row classact">
+        <div class="row mission">
           <div class="col-6 col-lg-4 col-xl-6">
             <h2 class="subheading">Our Mission</h2>
             <p class="paragraph">
@@ -50,7 +60,7 @@
 
           <div class="col-sm-6 col-lg-8 col-xl-6">
             <b-carousel
-              class="carousel standalone"
+              class="carousel image"
               v-model="slide"
               :interval="4000"
               controls
@@ -90,15 +100,19 @@
         </div>
         <div class="row-director">
           <div
-            class="
-              fluid
-              subblack
-              col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12
-            "
+            class="fluid
+              subyellow
+              col-12 
+              col-sm-12 
+              col-md-12 
+              col-lg-12 
+              col-xl-12 
+              col-xxl-12"
           >
-            <h2 class="subblack">Adopt a Pet Today!</h2>
+            <h2 class="subyellow">Adopt a Pet Today!</h2>
           </div>
-          <div class="d-flex justify-content-space-evenly">
+          <div class="d-flex 
+          justify-content-space-evenly">
             <div class="row adopt">
               <div class="col-12">
                 <img
@@ -107,7 +121,7 @@
                   alt=""
                   srcset=""
                 />
-                <h2 class="subblack">Cats</h2>
+                <h2 class="subyellow">Cats</h2>
               </div>
             </div>
             <div class="row adopt">
@@ -118,7 +132,7 @@
                   alt=""
                   srcset=""
                 />
-                <h2 class="subblack">Dogs</h2>
+                <h2 class="subyellow">Dogs</h2>
               </div>
             </div>
             <div class="row adopt">
@@ -129,15 +143,15 @@
                   alt=""
                   srcset=""
                 />
-                <h2 class="subblack">Others</h2>
+                <h2 class="subyellow">Others</h2>
               </div>
             </div>
           </div>
         </div>
-        <div class="row grassygnoll">
+        <div class="row mission">
           <div class="col-sm-6 col-lg-8">
             <img
-              class="img-fluid standalone"
+              class="img-fluid image"
               src="https://www.humanesociety.org/sites/default/files/styles/2000x850/public/2018/08/dog-girl-440625.jpg?h=558430af&itok=R-RS3S6N"
               alt=""
               srcset=""
@@ -170,7 +184,7 @@ export default {};
   width: 100%;
 }
 
-.standalone {
+.image {
   border: 10px solid rgb(255, 255, 230);
   border-radius: 50px;
   overflow: hidden;
@@ -181,9 +195,8 @@ export default {};
   background-color: rgb(155, 34, 38);
 }
 
-.subblack {
+.subyellow {
   color: rgb(255, 255, 230);
-
   text-shadow: 1px black;
 }
 
@@ -192,16 +205,12 @@ export default {};
   border: 7px solid rgb(255, 255, 230);
 }
 
-.classact {
+.mission {
   background-color: rgb(255, 255, 230);
 }
 
 .director {
   background-color: rgb(155, 34, 38);
-}
-
-.grassygnoll {
-  background-color: rgb(255, 255, 230);
 }
 
 .paragraph {
