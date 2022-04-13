@@ -30,6 +30,45 @@ public class JdbcPetDao implements PetDao{
 
     }
 
+    public List<Pet> findAllDogs(){
+        List<Pet> dogs = new ArrayList<>();
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one " +
+                     "FROM pets " +
+                     "WHERE animal_type LIKE '%dog%';";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            Pet pet = mapRowToPet(results);
+            dogs.add(pet);
+        }
+        return dogs;
+    }
+
+    public List<Pet> findAllCats(){
+        List<Pet> cats = new ArrayList<>();
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one " +
+                     "FROM pets " +
+                     "WHERE animal_type LIKE '%cat%';";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            Pet pet = mapRowToPet(results);
+            cats.add(pet);
+        }
+        return cats;
+    }
+
+    public List<Pet> findAllOtherAnimals(){
+        List<Pet> otherAnimals = new ArrayList<>();
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one " +
+                     "FROM pets " +
+                     "WHERE animal_type NOT LIKE '%cat%' AND animal_type NOT LIKE '%dog%';";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()) {
+            Pet pet = mapRowToPet(results);
+            otherAnimals.add(pet);
+        }
+        return otherAnimals;
+    }
+
     public Pet mapRowToPet(SqlRowSet rs){
         Pet pet = new Pet();
         pet.setPetId(rs.getLong("pet_id"));
