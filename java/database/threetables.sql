@@ -81,7 +81,7 @@ CREATE TABLE pets (
 	description text DEFAULT 'Description Coming Soon',
 	available boolean DEFAULT true, 
 	picture_one varchar(250) DEFAULT 'animal-shelter-manager\photos\ComingSoon.png',
-	picture_twp varchar(250),
+	picture_two varchar(250),
 	picture_three varchar(250),
 	CONSTRAINT PK_pet PRIMARY KEY (pet_id)
 );
