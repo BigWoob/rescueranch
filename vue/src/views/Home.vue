@@ -1,5 +1,5 @@
 <template>
-  <div class="containter-fluid">
+  <div class="">
     <header>
       <div>
         <img
@@ -30,14 +30,15 @@
         <b-nav-item href="/">Home</b-nav-item>
 
         <b-nav-item-dropdown text="Adopt" right class="nav-item">
-          <b-dropdown-item href="#">Cats and Kittens</b-dropdown-item>
-          <b-dropdown-item href="#">Dogs and Puppies</b-dropdown-item>
-          <b-dropdown-item href="#">Other Animals</b-dropdown-item>
+          <b-dropdown-item href="/AllPets">See All Pets</b-dropdown-item>
+          <b-dropdown-item href="/Cats">Cats and Kittens</b-dropdown-item>
+          <b-dropdown-item href="/Dogs">Dogs and Puppies</b-dropdown-item>
+          <b-dropdown-item href="/Others">Other Animals</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown text="Volunteer" right>
-          <b-dropdown-item href="/register">Join Us</b-dropdown-item>
-          <b-dropdown-item href="https://www.linkedin.com/in/evanyhacker/">Meet The Team</b-dropdown-item>
+          <b-dropdown-item href="/ApplyToVolunteer">Join Us</b-dropdown-item>
+          <b-dropdown-item href="https://www.linkedin.com/in/joe-righetti/">Meet The Team</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item href="#A">About Us</b-nav-item>
@@ -54,7 +55,7 @@
           <div class="col-6 col-lg-4 col-xl-6">
             <h2 class="subheading">Our Mission</h2>
             <p class="paragraph">
-              Rescue Ranch promotes, through its education, respect for all animals, as well as agricultural, environmental, and wildlife conservation, and facilitates rehabilitation, rescue, and responsible pet ownership in order to enhance the human-animal bond.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             </p>
           </div>
 
@@ -109,7 +110,7 @@
               col-xl-12 
               col-xxl-12"
           >
-            <h2 class="subyellow">Adopt a Pet Today!</h2>
+          <a href="AllPets"><h2 class="subyellow">Adopt a Pet Today!</h2></a>
           </div>
           <div class="d-flex 
           justify-content-space-evenly">
@@ -121,7 +122,7 @@
                   alt=""
                   srcset=""
                 />
-                <h2 class="subyellow">Cats</h2>
+                <a href="Cats"><h2 class="subyellow">Cats</h2></a>
               </div>
             </div>
             <div class="row adopt">
@@ -132,7 +133,7 @@
                   alt=""
                   srcset=""
                 />
-                <h2 class="subyellow">Dogs</h2>
+                <a href="Dogs"><h2 class="subyellow">Dogs</h2></a>
               </div>
             </div>
             <div class="row adopt">
@@ -143,7 +144,7 @@
                   alt=""
                   srcset=""
                 />
-                <h2 class="subyellow">Others</h2>
+                <a href="Others"><h2 class="subyellow">Other Animals</h2></a>
               </div>
             </div>
           </div>
@@ -161,7 +162,7 @@
             <h2 class="subheading">About The Team</h2>
             <a name="A"></a>
             <p class="paragraph">
-              Our team consists of pet-passionate individuals from all over, with expertise in many areas. We work to include all members of our community to help connect and develop programs to support our mission.
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
             </p>
           </div>
         </div>
@@ -251,6 +252,10 @@ h2 {
 
 .col-12 > img {
   max-width: 50%;
+}
+
+.redback {
+  background-color: rgb(155, 34, 38);
 }
 
 .foot {

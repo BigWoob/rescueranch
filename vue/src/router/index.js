@@ -4,6 +4,11 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
+import AllPets from '../views/AllPets.vue'
+import Cats from '../views/Cats.vue'
+import Dogs from '../views/Dogs.vue'
+import Others from '../views/Others.vue'
+import ApplyToVolunteer from '../views/ApplyToVolunteer.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -53,6 +58,46 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: "/allpets",
+      name: "allpets",
+      component: AllPets,
+      meta: {
+        requiresAuth: false
+      }
+    },
+      {
+        path: "/cats",
+        name: "cats",
+        component: Cats,
+        meta: {
+          requiresAuth: false
+        }
+      },
+        {
+          path: "/dogs",
+          name: "dogs",
+          component: Dogs,
+          meta: {
+            requiresAuth: false
+          }
+        },
+          {
+            path: "/others",
+            name: "others",
+            component: Others,
+            meta: {
+              requiresAuth: false
+            }
+    },
+    {
+      path: "/applytovolunteer",
+      name: "applytovolunteer",
+      component: ApplyToVolunteer,
+      meta: {
+        requiresAuth: false
+      }
+},
   ]
 })
 
