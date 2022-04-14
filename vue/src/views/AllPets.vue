@@ -69,6 +69,7 @@
       v-for="pet in pets"
       v-bind:key="pet.petId"
     >
+
       <div class="row adopt">
         <div class="col-12 adoptable">
           <img :src="pet.pictureOne" alt="" srcset="" class="img-fluid" />
@@ -161,4 +162,10 @@ export default {
 .adoptable > p {
   color: rgb(255, 255, 230);
 }
+
+.adoptable > img {
+  margin-top: 10px;
+  width: 33%;
+}
+
 </style>
