@@ -8,5 +8,16 @@ export default {
 
   getAllPets() {
     return http.get('/allpets');
-  }
+  },
+  getCats() {
+    return http.get('/cats');
+  },
+  getDogs() {
+    return http.get('/dogs');
+  },
+  getOthers() {
+    return http.get('/otheranimals');
+  },
+
+
 }
