@@ -1,11 +1,20 @@
 <template>
   <div>
     <header-default />
+    <navbar class="sticky-top" />
+
     <div class="mission">
       <h2 class="subheading">Your New Best Friend!</h2>
     </div>
 
-    <div
+ <pet-display
+      class="pet d-flex justify-content-space-evenly redback"
+      v-for="pet in pets"
+      v-bind:key="pet.petId"
+      v-bind:pet="pet"
+    />
+    
+    <!-- <div
       class="pet d-flex justify-content-space-evenly redback"
       v-for="pet in pets"
       v-bind:key="pet.petId"
@@ -21,16 +30,17 @@
           <p>Available: Yes</p>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
 import HeaderDefault from '../components/HeaderDefault.vue';
-
+import PetDisplay from '../components/PetDisplay.vue'
 import petService from "../services/PetService";
+import Navbar from '../components/Navbar.vue'
 export default {
-  components: { HeaderDefault },
+  components: { HeaderDefault, PetDisplay, Navbar },
   data() {
     return {
       pets: [],
@@ -42,8 +52,8 @@ export default {
       this.pets = response.data;
     });
 
-    this.$store.commit("Others");
-    this.$router.push("/Others");
+   // this.$store.commit("Others");
+   // this.$router.push("/Others");
   },
 };
 </script>

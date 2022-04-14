@@ -1,5 +1,8 @@
 <template>
   <div>
+<header-default />
+<navbar class="sticky-top" />
+
     <header>
       <div>
         <img
@@ -24,7 +27,7 @@
       sticky-top 
       navbar-custom"
     >
-      <b-navbar-nav 
+     <b-navbar-nav 
       class="d-flex justify-content-center">
       <b-nav-item href="/" class="nav-item justify-content-end">Home</b-nav-item>
 
@@ -46,7 +49,7 @@
 
         <b-nav-item href="/login" class="nav-item justify-content-end">Login</b-nav-item>
       </b-navbar-nav>
-    </b-navbar>
+    </b-navbar> 
 
     <body>
       <main>
@@ -177,14 +180,15 @@
 </template>
 
 <script>
-export default {};
+import HeaderDefault from '../components/HeaderDefault.vue';
+import Navbar from '../components/Navbar.vue';
+
+export default { HeaderDefault, Navbar };
 </script>
 
 <style>
 #title {
-  width: 100%;
 }
-
 .image {
   border: 10px solid rgb(255, 255, 230);
   border-radius: 50px;
