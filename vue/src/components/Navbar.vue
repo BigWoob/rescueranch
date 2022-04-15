@@ -7,14 +7,14 @@
         navbar
         bd-navbar
         flex-column flex-md-row
-        navbar-dark navbar-expand
+        navbar-expand
         nav-item
         sticky-top
         navbar-custom
       "
     >
       <b-navbar-nav class="d-flex justify-content-center">
-        <b-nav-item href="/" class="nav-item justify-content-end"
+        <b-nav-item href="/" class="nav-item justify-content-end navbar-item"
           >Home</b-nav-item
         >
 
@@ -26,7 +26,7 @@
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown text="Volunteer" right>
-          <b-dropdown-item href="/ApplyToVolunteer"
+          <b-dropdown-item navbar-item href="/ApplyToVolunteer"
             >Join The Team</b-dropdown-item
           >
           <b-dropdown-item href="https://www.linkedin.com/in/joe-righetti/"
@@ -34,15 +34,15 @@
           >
         </b-nav-item-dropdown>
 
-        <b-nav-item class="mr-auto" href="#A">About Us</b-nav-item>
+        <b-nav-item class="mr-auto navbar-item" href="#A">About Us</b-nav-item>
 
-        <a class="nav-link" href="/dono"
+        <a class="nav-link navbar-item" href="/dono"
           ><i class="fa fa-heart"></i> Donate<span class="sr-only"
             >(current)</span
           ></a
         >
 
-        <b-nav-item href="/login" class="nav-item justify-content-end"
+        <b-nav-item href="/login" class="nav-item justify-content-end log"
           >Login</b-nav-item
         >
       </b-navbar-nav>
@@ -58,5 +58,14 @@ name: "navbar"
 </script>
 
 <style>
+
+.navbar-items {
+  color: rgb(255, 255, 230) !important;
+}
+
+.log {
+ background-color: rgb(255, 255, 230);
+ color: rgb(155, 34, 38) !important;
+}
 
 </style>

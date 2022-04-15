@@ -12,6 +12,7 @@ import ApplyToVolunteer from '../views/ApplyToVolunteer.vue'
 import Dono from '../views/Dono.vue'
 import ThankYou from '../views/ThankYou.vue'
 import ListRanchers from '../views/ListRanchers.vue'
+import LoggedInHome from '../views/LoggedInHome.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -114,6 +115,14 @@ const router = new Router({
             component: Dono,
             meta: {
                 requiresAuth: false
+            }
+        },
+        {
+            path: "/loggedinhome",
+            name: "loggedinhome",
+            component: LoggedInHome,
+            meta: {
+                requiresAuth: true
             }
         },
         {

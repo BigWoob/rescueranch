@@ -1,5 +1,6 @@
 <template>
   <div>
+      <div>
     <header>
       <div>
         <img
@@ -11,7 +12,56 @@
         />
       </div>
     </header>
-    <navbar class="sticky-top"/>
+  </div> 
+  <div>
+ <b-navbar
+      id="nav"
+      role="navigation"
+      class="
+        navbar
+        bd-navbar
+        flex-column flex-md-row
+        navbar-expand
+        nav-item
+        sticky-top
+        navbar-custom
+      "
+    >
+      <b-navbar-nav class="d-flex justify-content-center">
+        <b-nav-item href="/LoggedInHome" class="nav-item justify-content-end navbar-item"
+          >Home</b-nav-item
+        >
+
+        <b-nav-item-dropdown text="Adopt" right class="nav-item">
+          <b-dropdown-item href="/AllPets">See All Animals</b-dropdown-item>
+          <b-dropdown-item href="/Cats">Cats and Kittens</b-dropdown-item>
+          <b-dropdown-item href="/Dogs">Dogs and Puppies</b-dropdown-item>
+          <b-dropdown-item href="/Others">Other Animals</b-dropdown-item>
+        </b-nav-item-dropdown>
+
+        <b-nav-item-dropdown text="Volunteer" right>
+          <b-dropdown-item navbar-item href="/ApplyToVolunteer"
+            >Join The Team</b-dropdown-item
+          >
+          <b-dropdown-item href="https://www.linkedin.com/in/joe-righetti/"
+            >Meet The Team</b-dropdown-item
+          >
+        </b-nav-item-dropdown>
+
+        <b-nav-item class="mr-auto navbar-item" href="#A">About Us</b-nav-item>
+
+        <a class="nav-link navbar-item" href="/dono"
+          ><i class="fa fa-heart"></i> Donate<span class="sr-only"
+            >(current)</span
+          ></a
+        >
+
+        <b-nav-item href="/logout" class="nav-item justify-content-end log"
+          >Logout</b-nav-item
+        >
+      </b-navbar-nav>
+    </b-navbar>
+
 
     <body>
       <main>
@@ -137,133 +187,15 @@
       “When you look into the eyes of an animal you’ve rescued, you can’t help but fall in love.” — <a class="paul" href="https://en.wikipedia.org/wiki/Paul_Shaffer"> Paul Shaffer</a>
       </div>
     </footer>
+  </div>
 
   </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue';
 
-export default {
-  components: { Navbar }, Navbar };
 </script>
 
 <style>
-#title {
-}
-.image {
-  border: 10px solid rgb(255, 255, 230);
-  border-radius: 50px;
-  overflow: hidden;
-}
 
-.nav-link, span {
-  font-size: large;
-}
-
-.row-director {
-  background-color: rgb(155, 34, 38);
-}
-
-.subyellow {
-  color: rgb(255, 255, 230);
-  text-shadow: 1px black;
-}
-
-.col-12 > img {
-  border-radius: 50%;
-  border: 7px solid rgb(255, 255, 230);
-}
-
-.mission {
-  background-color: rgb(255, 255, 230);
-}
-
-.director {
-  background-color: rgb(155, 34, 38);
-}
-
-.paragraph {
-  text-align: center;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 25px;
-}
-
-#nav {
-  bottom: 0;
-  width: 100%;
-  background-color: rgb(155, 34, 38);
-}
-
-.nav-item {
-  display: inline-block;
-  font-size: 20px;
-  padding: 1px 5px 1px 5px;
-}
-
-.dropdown {
-  color: rgb(255, 255, 230);
-  background-color: rgb(155, 34, 38);
-}
-
-h2 {
-  text-align: center;
-  color: rgb(155, 34, 38);
-  text-shadow: 2px black;
-  padding: 15px;
-  text-shadow: black 1px 0px 0px, black 0.540302px 0.841471px 0px,
-    black -0.416147px 0.909297px 0px, black -0.989992px 0.14112px 0px,
-    black -0.653644px -0.756802px 0px, black 0.283662px -0.958924px 0px,
-    black 0.96017px -0.279416px 0px;
-}
-
-.d-flex {
-  display: flex !important;
-  justify-content: space-evenly;
-}
-
-.adopt {
-  text-align: center;
-}
-
-.col-12 > img {
-  max-width: 50%;
-}
-
-.redback {
-  background-color: rgb(155, 34, 38);
-}
-
-.foot {
-  padding: 10px;
-  border-top: 10px solid rgb(155, 34, 38);
-  background-color: rgb(255, 255, 230);
-  font-style: italic;
-  text-align: center;
-}
-
-body {
-  background: rgb(255, 255, 230);
-}
-
-html {
-  scroll-behavior:smooth;
-}
-
-.paul {
-  color: black;
-}
-
-.paul:hover {
-  color: rgb(155, 34, 38);
-}
-
-.yunderline:hover {
-  text-decoration-color: rgb(255, 255, 230);
-}
-
-.volunteerform {
-  padding: 10px;
-}
 </style>
