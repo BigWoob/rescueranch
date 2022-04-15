@@ -6,7 +6,8 @@
       class="
         navbar
         bd-navbar
-        flex-column flex-md-row
+        flex-column 
+        flex-md-row
         navbar-expand
         nav-item
         sticky-top
@@ -58,11 +59,12 @@ export default {
 
 <style>
 .navbar-items {
-  color: rgb(255, 255, 230) !important;
+  color: rgb(255, 255, 230);
 }
 
 .log {
   background-color: rgb(255, 255, 230);
-  color: rgb(155, 34, 38) !important;
+  color: rgb(155, 34, 38);
+  border-radius: 15px;
 }
 </style>

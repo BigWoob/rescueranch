@@ -14,6 +14,7 @@ import ThankYou from '../views/ThankYou.vue'
 import ListRanchers from '../views/ListRanchers.vue'
 import LoggedInHome from '../views/LoggedInHome.vue'
 import ListApplicants from '../views/ListApplicants.vue'
+import AddPet from '../views/AddPet.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -131,6 +132,14 @@ const router = new Router({
             name: "rancherlist",
             component: ListRanchers,
 
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/addpet",
+            name: "addpet",
+            component: AddPet,
             meta: {
                 requiresAuth: false
             }

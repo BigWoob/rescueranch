@@ -30,6 +30,7 @@
             />
           </div>
         </div>
+        
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputFirstname">First Name</label>

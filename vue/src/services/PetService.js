@@ -19,5 +19,10 @@ export default {
     return http.get('/otheranimals');
   },
 
+  addPet(pet) {
+    return http.post('/addpet', pet);
+
+},
+
 
 }

@@ -51,6 +51,8 @@
         <b-nav-item class="mr-auto navbar-item" href="/ListApplicants">Applicants</b-nav-item>
         <b-nav-item class="mr-auto navbar-item" href="#A">About Us</b-nav-item>
 
+        <b-nav-item class="mr-auto navbar-item" href="/AddPet">Add a Pet</b-nav-item>
+
         
 
         <a class="nav-link navbar-item" href="/dono"
