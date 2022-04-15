@@ -37,8 +37,9 @@
 <script>
 import HeaderDefault from '../components/HeaderDefault.vue';
 import PetDisplay from '../components/PetDisplay.vue'
+import Navbar from '../components/Navbar.vue';
 import petService from "../services/PetService";
-import Navbar from '../components/Navbar.vue'
+
 export default {
   components: { HeaderDefault, PetDisplay, Navbar },
   data() {

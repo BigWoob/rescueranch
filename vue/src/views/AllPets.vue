@@ -1,6 +1,5 @@
 <template>
   <div>
-
   <header-default />
   <navbar class="sticky-top" />
 
@@ -83,9 +82,7 @@ export default {
     return {
       pets: [],
     };
-
   },
-
   created() {
     petService.getAllPets().then((response) => {
       this.pets = response.data;

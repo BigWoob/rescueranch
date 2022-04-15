@@ -1,6 +1,7 @@
 <template>
    <div>
      <header-default />
+     <navbar class="sticky-top" />
 
     <div id="login" class="text-center">
       <form class="form-signin" @submit.prevent="login">
@@ -44,10 +45,10 @@
 <script>
 import HeaderDefault from '../components/HeaderDefault.vue';
 import authService from "../services/AuthService";
-
+import Navbar from "../components/Navbar.vue";
 export default {
   name: "login",
-  components: {HeaderDefault},
+  components: {HeaderDefault, Navbar},
   data() {
     return {
       user: {

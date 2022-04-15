@@ -1,6 +1,8 @@
 <template>
   <div>
     <header-default />
+     <navbar class="sticky-top" />
+     
     <div class="volunteerform">
       <form>
         <div class="form-row">
@@ -82,8 +84,9 @@
 
 <script>
 import HeaderDefault from '../components/HeaderDefault.vue';
+import Navbar from '../components/Navbar.vue';
 export default {
-  components: { HeaderDefault },};
+  components: { HeaderDefault, Navbar},};
 </script>
 
 <style>

@@ -1,6 +1,7 @@
 <template>
   <div>
     <header-default />
+    <navbar class="sticky-top"/>
     <form>
         <div class="form-row">
           <div class="form-group col-md-6">
@@ -50,8 +51,9 @@
 
 <script>
 import HeaderDefault from '../components/HeaderDefault.vue'
+import Navbar from '../components/Navbar.vue'
 export default {
-  components: { HeaderDefault },
+  components: { HeaderDefault, Navbar },
 
 }
 </script>

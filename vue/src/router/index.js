@@ -11,6 +11,7 @@ import Others from '../views/Others.vue'
 import ApplyToVolunteer from '../views/ApplyToVolunteer.vue'
 import Dono from '../views/Dono.vue'
 import ThankYou from '../views/ThankYou.vue'
+import ListRanchers from '../views/ListRanchers.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -115,6 +116,15 @@ const router = new Router({
                 requiresAuth: false
             }
         },
+        {
+            path: "/rancherlist",
+            name: "rancherlist",
+            component: ListRanchers,
+
+            meta: {
+                requiresAuth: false
+            }
+        }
 
     ]
 })

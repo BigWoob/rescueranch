@@ -1,4 +1,7 @@
 <template>
+  <div>
+    <header-default />
+    <navbar class="sticky-top" />
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -38,12 +41,16 @@
       </button>
     </form>
   </div>
+  </div>
 </template>
 
 <script>
+import HeaderDefault from '../components/HeaderDefault.vue';
+import Navbar from '../components/Navbar.vue';
 import authService from '../services/AuthService';
 
 export default {
+  components: { HeaderDefault, Navbar },
   name: 'register',
   data() {
     return {
