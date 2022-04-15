@@ -69,6 +69,44 @@ public class JdbcPetDao implements PetDao{
         return otherAnimals;
     }
 
+    public List<Pet> getSearchResults(String input){
+        List<Pet> searchResults = new ArrayList<>();
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one "+
+                     "FROM pets " +
+                     "WHERE animal_type ILIKE ? OR pet_name ILIKE ? OR breed ILIKE ? OR description ILIKE ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,"%"+input+"%","%"+input+"%","%"+input+"%","%"+input+"%");
+
+        while(results.next()){
+            Pet pet = mapRowToPet(results);
+            searchResults.add(pet);
+        }
+
+
+        return sortSearchResults(searchResults, input);
+    }
+
+    private List<Pet> sortSearchResults(List<Pet> pets, String query){
+        List<Pet> name = new ArrayList<>();
+        List<Pet> breed = new ArrayList<>();
+        List<Pet> animalType = new ArrayList<>();
+        List<Pet> rest = new ArrayList<>();
+        for(Pet pet: pets){
+            if(pet.getPetName().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT))){
+                name.add(pet);
+            }else if(pet.getPetBreed().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT))){
+                breed.add(pet);
+            }else if(pet.getAnimalType().toLowerCase(Locale.ROOT).contains(query.toLowerCase(Locale.ROOT))){
+                animalType.add(pet);
+            }else{
+                rest.add(pet);
+            }
+        }
+        animalType.addAll(breed);
+        animalType.addAll(name);
+        animalType.addAll(rest);
+        return animalType;
+    }
+
     public Pet mapRowToPet(SqlRowSet rs){
         Pet pet = new Pet();
         pet.setPetId(rs.getLong("pet_id"));

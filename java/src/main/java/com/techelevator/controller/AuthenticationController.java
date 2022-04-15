@@ -19,6 +19,10 @@ import com.techelevator.security.jwt.JWTFilter;
 import com.techelevator.security.jwt.TokenProvider;
 
 
+import java.io.FileNotFoundException;
+
+
+
 @RestController
 @CrossOrigin
 public class AuthenticationController {
@@ -34,7 +38,7 @@ public class AuthenticationController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto) {
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginDTO loginDto) throws FileNotFoundException {
 
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword());
@@ -47,6 +51,7 @@ public class AuthenticationController {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
+
         return new ResponseEntity<>(new LoginResponse(jwt, user), httpHeaders, HttpStatus.OK);
     }
 

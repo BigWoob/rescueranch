@@ -15,15 +15,12 @@ CREATE TABLE users (
 	user_id int DEFAULT nextval('seq_user_id'::regclass) NOT NULL,
 	username varchar(50) UNIQUE NOT NULL,
 	password_hash varchar(200) NOT NULL,
-	full_name varchar(50) NOT NULL,
-	email varchar(50) UNIQUE NOT NULL,
-	phone_number varchar(10) NOT NULL,
 	role varchar(50) NOT NULL,
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
-INSERT INTO users (username,password_hash,full_name,email,phone_number,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','Rancher','rancher@rr.com','8005551234','ROLE_USER');
-INSERT INTO users (username,password_hash,full_name,email,phone_number,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','Ranch Owner','Owner@rr.com','8008888888','ROLE_ADMIN');
+INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
+INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 
 --- USER SETUP (Do Not Modify)

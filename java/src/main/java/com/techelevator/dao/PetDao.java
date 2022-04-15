@@ -8,4 +8,5 @@ public interface PetDao {
     List<Pet> findAllDogs();
     List<Pet> findAllCats();
     List<Pet> findAllOtherAnimals();
+    List<Pet> getSearchResults(String input);
 }
