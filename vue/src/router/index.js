@@ -13,6 +13,7 @@ import Dono from '../views/Dono.vue'
 import ThankYou from '../views/ThankYou.vue'
 import ListRanchers from '../views/ListRanchers.vue'
 import LoggedInHome from '../views/LoggedInHome.vue'
+import ListApplicants from '../views/ListApplicants.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -132,6 +133,15 @@ const router = new Router({
 
             meta: {
                 requiresAuth: false
+            }
+        },
+        {
+            path: "/listapplicants",
+            name: "listapplicants",
+            component: ListApplicants,
+
+            meta: {
+                requiresAuth: true
             }
         }
 

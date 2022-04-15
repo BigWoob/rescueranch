@@ -1,14 +1,23 @@
-// import axios from 'axios';
+import axios from 'axios';
 
-// const http = axios.create({
-//   baseURL: "http://localhost:3000"
-// });
+const http = axios.create({
+    baseURL: "http://localhost:3000"
+});
 
-// export default {
+export default {
 
-//   //getAllPets() {
-//    // return http.get('/allpets');
+    addApplicant(applicant) {
+        return http.post('/apply', applicant);
+
+    },
 
 
 
-// }
+
+
+
+
+    getApplicants() {
+        return http.get('/applicants');
+    }
+}

@@ -53,6 +53,7 @@ public class AccessController {
             return petDao.getSearchResults(query);
         }
 
+
         @PreAuthorize("permitAll")
         @RequestMapping(value = "/apply", method = RequestMethod.POST)
         public Account petApplicant(@RequestBody Account newApplicant){return accountDao.createApplicant(newApplicant);}

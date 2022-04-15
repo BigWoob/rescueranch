@@ -1,6 +1,6 @@
 <template>
   <div>
-      <b-navbar
+    <b-navbar
       id="nav"
       role="navigation"
       class="
@@ -48,24 +48,21 @@
       </b-navbar-nav>
     </b-navbar>
   </div>
- 
 </template>
 
 <script>
 export default {
-name: "navbar"
-}
+  name: "navbar",
+};
 </script>
 
 <style>
-
 .navbar-items {
   color: rgb(255, 255, 230) !important;
 }
 
 .log {
- background-color: rgb(255, 255, 230);
- color: rgb(155, 34, 38) !important;
+  background-color: rgb(255, 255, 230);
+  color: rgb(155, 34, 38) !important;
 }
-
 </style>

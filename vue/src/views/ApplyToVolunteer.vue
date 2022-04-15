@@ -1,10 +1,10 @@
 <template>
   <div>
     <header-default />
-     <navbar class="sticky-top" />
-     
+    <navbar class="sticky-top" />
+
     <div class="volunteerform">
-      <form>
+      <form v-on:submit.prevent="submitForm" class="ApplyToVolunteer">
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputUsername">Username</label>
@@ -13,17 +13,19 @@
               class="form-control"
               id="inputUsername"
               placeholder="Username"
+              v-model="applicant.inputUsername"
               required
             />
           </div>
 
           <div class="form-group col-md-6">
-            <label for="inputPassword4">Password</label>
+            <label for="inputPassword">Password</label>
             <input
               type="password"
               class="form-control"
-              id="inputPassword4"
+              id="inputPassword"
               placeholder="Password"
+               v-model="applicant.inputPassword"
               required
             />
           </div>
@@ -36,6 +38,7 @@
               class="form-control"
               id="inputFirstname"
               placeholder="First Name"
+               v-model="applicant.inputFirstname"
               required
             />
           </div>
@@ -46,6 +49,7 @@
               class="form-control"
               id="inputLastname"
               placeholder="Last Name"
+               v-model="applicant.inputLastname"
               required
             />
           </div>
@@ -58,6 +62,7 @@
                 class="form-control"
                 id="inputEmail"
                 placeholder="Joe@RescueRanch.com"
+                 v-model="applicant.inputEmail"
                 required
               />
             </div>
@@ -68,6 +73,7 @@
                 type="tel"
                 class="form-control"
                 id="inputPhone"
+                 v-model="applicant.inputPhone"
                 placeholder="9194445555"
                 :maxlength="10"
                 pattern="[1-9]{1}[0-9]{9}"
@@ -85,8 +91,64 @@
 <script>
 import HeaderDefault from '../components/HeaderDefault.vue';
 import Navbar from '../components/Navbar.vue';
+import ApplicantService from "../services/ApplicantService";
+
+
 export default {
-  components: { HeaderDefault, Navbar},};
+  name: "ApplyToVolunteer",
+
+  data() {
+    return {
+      applicant: {
+        username: "",
+        password_hash: "",
+        fullname: "",
+        email: "",
+        phoneNumber:""
+      },
+      //errorMsg: ""
+    };
+  },
+
+  components: { HeaderDefault, Navbar},
+
+  methods: {
+    submitForm() {
+      const newApplicant = {
+        //boardId: Number(this.$route.params.boardID),
+        //dont know what is after the .
+        username: this.applicant.inputUsername,
+        password_hash: this.applicant.inputPassword,
+        fullname: this.applicant.inputFirstname + " " +this.applicant.inputLastname ,
+        email: this.applicant.inputEmail,
+        phoneNumber: parseInt(this.applicant.inputPhone)
+       
+      
+      //confirmation
+  };
+
+  
+      if (newApplicant) {
+        // add
+        ApplicantService
+          .addApplicant(newApplicant)
+          .then(response => {
+            if (response.status === 200) {
+              this.$router.push('/thankyou');
+            }
+          })
+          // .catch(error => {
+          //   this.handleErrorResponse(error, "adding");
+          // });
+          ;
+          //cancel form button
+
+  //created() {},
+  
+      }
+    }
+  }
+}
 </script>
 
 <style>
