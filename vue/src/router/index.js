@@ -15,6 +15,7 @@ import ListRanchers from '../views/ListRanchers.vue'
 import LoggedInHome from '../views/LoggedInHome.vue'
 import ListApplicants from '../views/ListApplicants.vue'
 import AddPet from '../views/AddPet.vue'
+import ConfirmPet from '../views/ConfirmPet.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -107,6 +108,14 @@ const router = new Router({
             path: "/thankyou",
             name: "thankyou",
             component: ThankYou,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/confirmpet",
+            name: "confirmpet",
+            component: ConfirmPet,
             meta: {
                 requiresAuth: false
             }
