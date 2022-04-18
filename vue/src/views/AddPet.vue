@@ -145,7 +145,7 @@ export default {
         // add
         PetService.addPet(newPet).then((response) => {
           if (response.status === 200) {
-            this.$router.push("/thankyou");
+            this.$router.push("/confirmpet");
           }
         });
         // .catch(error => {

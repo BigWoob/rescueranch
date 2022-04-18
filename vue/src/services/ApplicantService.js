@@ -13,11 +13,11 @@ export default {
         return axios.get('/applicants', user);
     },
 
-    approveApplicant(id, user) {
-        return axios.post(`/approve/${user.applicant.id}`, user)
+    approveApplicant(applicant) {
+        return axios.post(`/approve/${applicant}`)
     },
 
-    deleteApplicant(id, user) {
-        return axios.put(`/deny/${user.applicant.id}`, user)
+    deleteApplicant(applicant, user) {
+        return axios.put(`/deny/${applicant.id}`, user)
     }
 }

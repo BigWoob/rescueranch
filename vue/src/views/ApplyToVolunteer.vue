@@ -8,7 +8,7 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputUsername">Username</label>
-            <input
+            <inputnp
               type="text"
               class="form-control"
               id="inputUsername"
