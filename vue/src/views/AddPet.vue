@@ -14,7 +14,7 @@
               class="form-control"
               id="animalName"
               placeholder="Spaghetti"
-              v-model="pet.animalName"
+              v-model="pet.petName"
               required
             />
           </div>
@@ -40,7 +40,7 @@
               class="form-control"
               id="animalBreed"
               placeholder="Type breed here"
-              v-model="pet.animalBreed"
+              v-model="pet.petBreed"
               required
             />
           </div>
@@ -60,7 +60,7 @@
               class="form-control"
               id="animalAge"
               placeholder="How many years old?"
-              v-model="pet.animalAge"
+              v-model="pet.age"
               required
             />
           </div>
@@ -73,7 +73,6 @@
               id="animalDescription"
               placeholder="Insert Description Here..."
               v-model="pet.animalDescription"
-              required
             />
           </div>
 
@@ -85,7 +84,6 @@
               id="pictureOne"
               placeholder="Insert Link..."
               v-model="pet.pictureOne"
-              required
             />
           </div>
 
@@ -117,9 +115,9 @@ export default {
         petName: "",
         petBreed: "",
         age: "",
-        animalDescription: "",
+        animalDescription: "Description Coming Soon",
         available: "",
-        pictureOne: "",
+        pictureOne: "https://1.bp.blogspot.com/-AzSTfPrkhSY/WkrdSHwgxkI/AAAAAAAAARI/L_3p6sG_CK8UgGpgXyTRXaKtG9O7KUCWACLcBGAs/s320/unnamed.png",
       },
       //errorMsg: ""
     };
@@ -138,7 +136,7 @@ export default {
         petBreed: this.pet.petBreed,
         age: parseInt(this.pet.age),
         animalDescription: this.pet.animalDescription,
-        available: this.pet.available,
+        available: Boolean(this.pet.available),
         pictureOne: this.pet.pictureOne,
         //confirmation
       };

@@ -28,8 +28,32 @@ public class Pet {
         this.pictureTwo = null;
         this.pictureThree = null;
     }
+    public Pet(String animalType, String animalGender, String petName, String petBreed, int age, String animalDescription, boolean available, String pictureOne){
+        this.animalType = animalType;
+        this.animalGender = animalGender;
+        this.petName = petName;
+        this.petBreed = petBreed;
+        this.age = age;
+        this.animalDescription = animalDescription;
+        this.available = available;
+        this.pictureOne = pictureOne;
+        this.pictureTwo = null;
+        this.pictureThree = null;
+    }
     public Pet(long petId, String animalType, String animalGender, String petName, String petBreed, int age, String animalDescription, boolean available, String pictureOne, String pictureTwo, String pictureThree){
         this.petId = petId;
+        this.animalType = animalType;
+        this.animalGender = animalGender;
+        this.petName = petName;
+        this.petBreed = petBreed;
+        this.age = age;
+        this.animalDescription = animalDescription;
+        this.available = available;
+        this.pictureOne = pictureOne;
+        this.pictureTwo = pictureTwo;
+        this.pictureThree = pictureThree;
+    }
+    public Pet(String animalType, String animalGender, String petName, String petBreed, int age, String animalDescription, boolean available, String pictureOne, String pictureTwo, String pictureThree){
         this.animalType = animalType;
         this.animalGender = animalGender;
         this.petName = petName;
