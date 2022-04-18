@@ -84,7 +84,7 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> findAllOtherAnimals(){
         List<Pet> otherAnimals = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three" +
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
                      "FROM pets " +
                      "WHERE animal_type NOT LIKE '%cat%' AND animal_type NOT LIKE '%dog%';";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
