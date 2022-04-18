@@ -27,21 +27,15 @@ public class AccessController {
 
         @PreAuthorize("permitAll")
         @RequestMapping(value = "/allpets", method = RequestMethod.GET)
-        public List<Pet> getAllPets(){
-            return petDao.findAll();
-        }
+        public List<Pet> getAllPets(){return petDao.findAll();}
 
         @PreAuthorize("permitAll")
         @RequestMapping(value = "/dogs", method = RequestMethod.GET)
-        public List<Pet> getAllDogs(){
-        return petDao.findAllDogs();
-    }
+        public List<Pet> getAllDogs(){return petDao.findAllDogs();}
 
         @PreAuthorize("permitAll")
         @RequestMapping(value = "/cats", method = RequestMethod.GET)
-        public List<Pet> getAllCats(){
-        return petDao.findAllCats();
-    }
+        public List<Pet> getAllCats(){return petDao.findAllCats();}
 
         @PreAuthorize("permitAll")
         @RequestMapping(value = "/otheranimals", method = RequestMethod.GET)
@@ -49,9 +43,7 @@ public class AccessController {
 
         @PreAuthorize("permitAll")
         @RequestMapping(value = "/search", method = RequestMethod.GET)
-        public List<Pet> search(@RequestParam String query){
-            return petDao.getSearchResults(query);
-        }
+        public List<Pet> search(@RequestParam String query){return petDao.getSearchResults(query);}
 
         @PreAuthorize("permitAll")
         @RequestMapping(value = "/apply", method = RequestMethod.POST)
@@ -72,5 +64,13 @@ public class AccessController {
         @RequestMapping(value = "/deny/{id}", method = RequestMethod.PUT)
         public boolean deny(@PathVariable Long id){return accountDao.denyApplicant(id);}
 
+        @RequestMapping(value = "/rancherlist", method = RequestMethod.GET)
+        public List<Account> getAllRanchers() {return accountDao.getAllRanchers();}
+
+        @RequestMapping(value = "/updatepet", method = RequestMethod.PUT)
+        public Pet updatePet(@RequestBody Pet pet){return petDao.updatePet(pet);}
+
+        @RequestMapping(value = "/removepet/{id}", method = RequestMethod.PUT)
+        public boolean removePet(@PathVariable Long id){return petDao.removePet(id);}
 
 }

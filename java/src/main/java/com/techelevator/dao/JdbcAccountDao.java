@@ -3,6 +3,7 @@ package com.techelevator.dao;
 import com.techelevator.model.Account;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,15 +18,38 @@ public class JdbcAccountDao implements AccountDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public List<Account> getAllRanchers(){
+        List<Account> accounts = new ArrayList<>();
+        String sql = "SELECT applicant_id, username, password_hash, full_name, email, phone_number " +
+                     "FROM applicants " +
+                     "LEFT OUTER JOIN accounts ON applicants.applicant_id = accounts.previous_id " +
+                     "WHERE accounts.previous_id IS NOT NULL";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()){
+            Account account = mapRowToAccount(results);
+            accounts.add(account);
+        }
+        return accounts;
+    }
 
     @Override
     public boolean acceptApplicant(Long id) {
-        String sql = "INSERT INTO accounts " +
+        Account account = getApplicantById(id);
+
+        String sql1 = "insert into users (username,password_hash,role) values(?, ?, ?) " +
+                      "RETURNING user_id;";
+
+        Long anotherLong = jdbcTemplate.queryForObject(sql1, Long.class, account.getUsername(), account.getPassword_hash(), "ROLE_USER");
+
+
+        String sql2 = "INSERT INTO accounts " +
                      "(previous_id, aUser_id) " +
                      "VALUES (?, ?) " +
                      "RETURNING account_id;";
-        Long aLong = jdbcTemplate.queryForObject(sql,Long.class, id,1);
-        if(aLong != null){
+
+        Long aLong = jdbcTemplate.queryForObject(sql2,Long.class, id,anotherLong);
+
+        if(aLong != null && anotherLong != null){
             return true;
         }else{
             return false;
@@ -55,11 +79,12 @@ public class JdbcAccountDao implements AccountDao{
 
     public Account createApplicant(Account account){
 
+
         Account createdApplicant = null;
         String sql = "INSERT INTO applicants (username, password_hash, full_name, email, phone_number) " +
                      "VALUES (?, ?, ?, ?, ?) " +
                      "RETURNING applicant_id;";
-        Long newApplicantId = jdbcTemplate.queryForObject(sql,Long.class,account.getUsername(), account.getPassword_hash(), account.getFullname(), account.getEmail(), account.getPhoneNumber());
+        Long newApplicantId = jdbcTemplate.queryForObject(sql,Long.class,account.getUsername(), hashPassWord(account.getPassword_hash()), account.getFullname(), account.getEmail(), account.getPhoneNumber());
         createdApplicant = getAccount(newApplicantId);
 
         return createdApplicant;
@@ -93,6 +118,11 @@ public class JdbcAccountDao implements AccountDao{
 
         return applicants;
     }
+
+    private String hashPassWord(String password){
+        return new BCryptPasswordEncoder().encode(password);
+    }
+
 
     private Account mapRowToAccount(SqlRowSet rs){
         Account account = new Account();

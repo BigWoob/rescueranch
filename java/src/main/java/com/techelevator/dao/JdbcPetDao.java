@@ -17,6 +17,26 @@ public class JdbcPetDao implements PetDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public boolean removePet(Long id){
+        String sql = "DELETE " +
+                     "FROM pets " +
+                     "WHERE pet_id = ?;";
+        return jdbcTemplate.update(sql,id) == 1;
+    }
+
+    public Pet updatePet(Pet pet){
+        Pet newPet = null;
+        String sql = "UPDATE pets "+
+                     "SET animal_type = ?, gender = ?, pet_name = ?, breed = ?, age = ?, description = ?, available = ?, picture_one = ?, picture_two = ?, picture_three = ? " +
+                     "WHERE pet_id = ?; ";
+
+        boolean updated = jdbcTemplate.update(sql,pet.getAnimalType(), pet.getAnimalGender(), pet.getPetName(), pet.getPetBreed(), pet.getAge(), pet.getAnimalDescription(), pet.getAvailable(), pet.getPictureOne(), pet.getPictureTwo(), pet.getPictureThree(), pet.getPetId()) == 1;
+        if(updated){
+            newPet = getPetById(pet.getPetId());
+        }
+        return newPet;
+    }
+
     public Pet addPet(Pet pet){
         Pet pet1 = null;
         String sql = "INSERT INTO pets (animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three) "+

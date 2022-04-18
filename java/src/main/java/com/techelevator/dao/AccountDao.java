@@ -11,4 +11,5 @@ public interface AccountDao {
     Account getApplicantById(Long id);
     boolean acceptApplicant(Long id);
     boolean denyApplicant(Long id);
+    List<Account> getAllRanchers();
 }

@@ -10,4 +10,6 @@ public interface PetDao {
     List<Pet> findAllOtherAnimals();
     List<Pet> getSearchResults(String input);
     Pet addPet(Pet pet);
+    Pet updatePet(Pet pet);
+    boolean removePet(Long id);
 }
