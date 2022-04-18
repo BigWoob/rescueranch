@@ -53,7 +53,6 @@ public class AccessController {
             return petDao.getSearchResults(query);
         }
 
-
         @PreAuthorize("permitAll")
         @RequestMapping(value = "/apply", method = RequestMethod.POST)
         public Account petApplicant(@RequestBody Account newApplicant){return accountDao.createApplicant(newApplicant);}
@@ -61,5 +60,17 @@ public class AccessController {
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/applicants", method = RequestMethod.GET)
         public List<Account> applicants(){return accountDao.getApplicants();}
+
+        @RequestMapping(value = "/addpet", method = RequestMethod.POST)
+        public Pet addPet(@RequestBody Pet pet){return petDao.addPet(pet);}
+
+        @PreAuthorize("hasRole('ADMIN')")
+        @RequestMapping(value = "/approve/{id}", method = RequestMethod.POST)
+        public boolean approve(@PathVariable Long id){return accountDao.acceptApplicant(id);}
+
+        @PreAuthorize("hasRole('ADMIN')")
+        @RequestMapping(value = "/deny/{id}", method = RequestMethod.PUT)
+        public boolean deny(@PathVariable Long id){return accountDao.denyApplicant(id);}
+
 
 }

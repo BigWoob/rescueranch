@@ -17,7 +17,44 @@ public class JdbcAccountDao implements AccountDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
+
+    @Override
+    public boolean acceptApplicant(Long id) {
+        String sql = "INSERT INTO accounts " +
+                     "(previous_id, aUser_id) " +
+                     "VALUES (?, ?) " +
+                     "RETURNING account_id;";
+        Long aLong = jdbcTemplate.queryForObject(sql,Long.class, id,1);
+        if(aLong != null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public boolean denyApplicant(Long id) {
+        String sql = "DELETE " +
+                     "FROM applicants " +
+                     "WHERE applicant_id = ?;";
+        return jdbcTemplate.update(sql,id) == 1;
+    }
+
+    @Override
+    public Account getApplicantById(Long id) {
+        Account account = null;
+        String sql = "SELECT applicant_id, username, password_hash, full_name, email, phone_number "+
+                     "FROM applicants "+
+                     "WHERE applicant_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,id);
+        if(results.next()){
+            account = mapRowToAccount(results);
+        }
+        return account;
+    }
+
     public Account createApplicant(Account account){
+
         Account createdApplicant = null;
         String sql = "INSERT INTO applicants (username, password_hash, full_name, email, phone_number) " +
                      "VALUES (?, ?, ?, ?, ?) " +
@@ -45,7 +82,9 @@ public class JdbcAccountDao implements AccountDao{
         List<Account> applicants = new ArrayList<>();
 
         String sql = "SELECT applicant_id, username, password_hash, full_name, email, phone_number " +
-                     "FROM applicants;";
+                     "FROM applicants " +
+                     "LEFT OUTER JOIN accounts ON applicants.applicant_id = accounts.previous_id " +
+                     "WHERE accounts.previous_id IS NULL";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()){
             Account account = mapRowToAccount(results);

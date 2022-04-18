@@ -8,4 +8,7 @@ public interface AccountDao {
     Account createApplicant(Account account);
     Account getAccount(Long id);
     List<Account> getApplicants();
+    Account getApplicantById(Long id);
+    boolean acceptApplicant(Long id);
+    boolean denyApplicant(Long id);
 }

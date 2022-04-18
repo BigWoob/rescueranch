@@ -17,9 +17,35 @@ public class JdbcPetDao implements PetDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public Pet addPet(Pet pet){
+        Pet pet1 = null;
+        String sql = "INSERT INTO pets (animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three) "+
+                     "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) " +
+                     "RETURNING pet_id;";
+        Long newPetId = jdbcTemplate.queryForObject(sql, Long.class, pet.getAnimalType(), pet.getAnimalGender(), pet.getPetName(), pet.getPetBreed(), pet.getAge(), pet.getAnimalDescription(), pet.getAvailable(), pet.getPictureOne(), pet.getPictureTwo(), pet.getPictureThree());
+
+        pet1 = getPetById(newPetId);
+
+        return pet1;
+    }
+
+    public Pet getPetById(Long petId){
+        Pet pet = null;
+
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
+                     "FROM pets WHERE pet_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,petId);
+
+        if(results.next()){
+            pet = mapRowToPet(results);
+        }
+
+        return pet;
+    }
+
     public List<Pet> findAll(){
         List<Pet> allPets = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one " +
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
                      "FROM pets; ";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
@@ -32,7 +58,7 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> findAllDogs(){
         List<Pet> dogs = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one " +
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
                      "FROM pets " +
                      "WHERE animal_type LIKE '%dog%';";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -45,7 +71,7 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> findAllCats(){
         List<Pet> cats = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one " +
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
                      "FROM pets " +
                      "WHERE animal_type LIKE '%cat%';";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -58,7 +84,7 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> findAllOtherAnimals(){
         List<Pet> otherAnimals = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one " +
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three" +
                      "FROM pets " +
                      "WHERE animal_type NOT LIKE '%cat%' AND animal_type NOT LIKE '%dog%';";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
@@ -71,7 +97,7 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> getSearchResults(String input){
         List<Pet> searchResults = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one "+
+        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three "+
                      "FROM pets " +
                      "WHERE animal_type ILIKE ? OR pet_name ILIKE ? OR breed ILIKE ? OR description ILIKE ?;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,"%"+input+"%","%"+input+"%","%"+input+"%","%"+input+"%");
@@ -118,6 +144,8 @@ public class JdbcPetDao implements PetDao{
         pet.setAnimalDescription(rs.getString("description"));
         pet.setAvailable(rs.getBoolean("available"));
         pet.setPictureOne(rs.getString("picture_one"));
+        pet.setPictureTwo(rs.getString("picture_two"));
+        pet.setPictureThree(rs.getString("picture_three"));
         return pet;
     }
 }
