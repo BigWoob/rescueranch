@@ -14,7 +14,8 @@
       v-bind:pet="pet"
     />
 
-    <!-- <div class="d-flex justify-content-space-evenly redback">
+
+     <!--<div class="d-flex justify-content-space-evenly redback">
       <div class="row adopt">
         <div class="col-12 adoptable">
           <img
@@ -28,8 +29,8 @@
           <p>Sex: Male</p>
           <p>Breed: Cat</p>
           <p>Age: 3 Years</p>
-          <p>Available: Yes</p> -->
-        <!-- </div>
+          <p>Available: Yes</p> 
+      </div>
 
         <div class="row adopt">
           <div class="col-12 adoptable">
@@ -64,7 +65,7 @@
           </div>
         </div>
       </div>
-    </div> --> 
+    </div> -->
   </div>
 </template>
 
@@ -103,4 +104,5 @@ export default {
   margin-top: 10px;
   width: 33%;
 }
+
 </style>

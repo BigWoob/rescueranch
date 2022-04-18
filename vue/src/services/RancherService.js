@@ -1,12 +1,10 @@
 import axios from 'axios';
 
-const http = axios.create({
-    baseURL: "http://localhost:3000"
-});
+
 
 export default {
 
     getAllRanchers() {
-        return http.get('/rancherlist');
+        return axios.get('/rancherlist');
     }
 }

@@ -41,11 +41,11 @@ export default new Vuex.Store({
         Dogs() {
 
         },
-        getApplicants(state, token) {
-            state.token = token;
-            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+        //getApplicants(state, token) {
+        // state.token = token;
+        // axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-        },
+        //},
 
     }
 })

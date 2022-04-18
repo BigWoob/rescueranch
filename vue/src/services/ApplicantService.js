@@ -1,19 +1,23 @@
 import axios from 'axios';
 
-const http = axios.create({
-    baseURL: "http://localhost:3000",
-    headers: {"Authorization": "Bearer "+ this.$store.state.token}
-  });
 
 export default {
 
 
     addApplicant(applicant) {
-        return http.post('/apply', applicant);
+        return axios.post('/apply', applicant);
 
     },
 
     getApplicants(user) {
-        return http.get('/applicants', user);
+        return axios.get('/applicants', user);
+    },
+
+    approveApplicant(id, user) {
+        return axios.post('/accept/{applicant.id}', user)
+    },
+
+    deleteApplicant(id, user) {
+        return axios.delete('/delete/{applicant.id}', user)
     }
 }

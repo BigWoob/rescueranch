@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar
+    <b-navbar type="dark"
       id="nav"
       role="navigation"
       class="
@@ -58,13 +58,22 @@ export default {
 </script>
 
 <style>
-.navbar-items {
+.navbar-item {
   color: rgb(255, 255, 230);
 }
 
-.log {
+log {
   background-color: rgb(255, 255, 230);
   color: rgb(155, 34, 38);
   border-radius: 15px;
+}
+
+.show {
+  background-color: rgb(155, 34, 38);
+  border-radius: 10px;
+  color: rgb(255, 255, 230) !important;
+}
+b-dropdown-item {
+   color: rgb(255, 255, 230) !important;
 }
 </style>
