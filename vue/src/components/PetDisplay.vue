@@ -19,12 +19,20 @@
         <div class="d-flex holdBtn">
           <div class="view-btn">
             <a href="/Adopt" type="button" class="btn btn-outline"
-              >Adopt {{ pet.petName }}</a>
+              >Adopt {{ pet.petName }}</a
+            >
           </div>
 
           <div class="view-btn">
-            <a href="/PetInfo" type="button" class="btn btn-outline"
-              >About {{ pet.petName }}</a>
+            <a href="/PetInfo/" type="button" class="btn btn-outline"
+              >About {{ pet.petName }}</a
+            >
+
+            <router-link
+              v-bind:to="{ name: 'petinfo', params: { id: pet.petId } }"
+            >
+              See Details
+            </router-link>
           </div>
         </div>
       </div>

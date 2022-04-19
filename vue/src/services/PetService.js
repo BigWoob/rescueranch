@@ -6,6 +6,9 @@ export default {
     getAllPets() {
         return axios.get('/allpets');
     },
+    getPetById(id) {
+        return axios.get('/petinfo/'+ id);
+    },
     getCats() {
         return axios.get('/cats');
     },

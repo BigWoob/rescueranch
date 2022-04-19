@@ -2,45 +2,71 @@
   <div>
     <header-default />
     <navbar class="sticky-top" />
+    <h1 class="subheading">Meet The Ranchers</h1>
 
     <main>
       <div class="d-flex justify-content-space-evenly">
         <div class="row">
           <div class="col-12">
-            <img
-              class="img-fluid"
-              src="../assets/images/Evan.jpg"
-              alt=""
-              srcset=""
-            />
-            <a class="yunderline" href="Cats"
-              ><h2 class="subyellow">Cats</h2></a
+            <a
+              class="yunderline"
+              href="https://www.linkedin.com/in/evanyhacker/"
             >
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <img
-              class="img-fluid"
-              src="https://images.unsplash.com/photo-1587354004405-bbce24c893c8?ixlib=rb-1.2.1&ixid=MnwxM[…]G90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-              srcset=""
-            />
-            <a class="yunderline" href="Dogs"
-              ><h2 class="subyellow">Dogs</h2></a
+              <img
+                class="img-fluid"
+                src="../assets/images/Evan.jpg"
+                alt=""
+                srcset=""
+              />
+              <h2 class="subheading">Evan Y Hacker</h2></a
             >
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <img
-              class="img-fluid"
-              src="https://images.unsplash.com/photo-1589643989849-b4cef7873cd4?ixlib=rb-1.2.1&ixid=MnwxM[…]G90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
-              alt=""
-              srcset=""
-            />
-            <a class="yunderline" href="Others"
-              ><h2 class="subyellow">Other Animals</h2></a
+            <a
+              class="yunderline"
+              href="https://www.linkedin.com/in/dev-james-miller/"
+            >
+              <img
+                class="img-fluid"
+                src="../assets/images/Jim.jpg"
+                alt=""
+                srcset=""
+              />
+              <h2 class="subheading">Jim Miller</h2></a
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <a
+              class="yunderline"
+              href="https://www.linkedin.com/in/cameron-nagy/"
+            >
+              <img
+                class="img-fluid"
+                src="../assets/images/Me.jpg"
+                alt=""
+                srcset=""
+              />
+              <h2 class="subheading">Cameron Nagy</h2></a
+            >
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <a
+            class="yunderline"
+              href="https://www.linkedin.com/in/robert-presley/">
+              <img
+                class="img-fluid"
+                src="../assets/images/Robert.jpg"
+                alt=""
+                srcset=""
+              />
+              <h2 class="subheading">Robert Presley</h2></a
             >
           </div>
         </div>
@@ -61,4 +87,7 @@ export default {
 </script>
 
 <style>
+.col-12 {
+  text-align: center;
+}
 </style>

@@ -80,35 +80,38 @@
           justify-content-space-evenly">
             <div class="row adopt">
               <div class="col-12">
+                <a class="yunderline" href="Cats">
                 <img
                   class="img-fluid"
                   src="https://images.unsplash.com/photo-1580788404954-ae4e4bdc9061?ixlib=rb-1.2.1&ixid=MnwxM[…]G90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
                   alt=""
                   srcset=""
                 />
-                <a class="yunderline" href="Cats"><h2 class="subyellow">Cats</h2></a>
+               <h2 class="subyellow">Cats</h2></a>
               </div>
             </div>
             <div class="row adopt">
               <div class="col-12">
+                <a class="yunderline" href="Dogs">
                 <img
                   class="img-fluid"
                   src="https://images.unsplash.com/photo-1587354004405-bbce24c893c8?ixlib=rb-1.2.1&ixid=MnwxM[…]G90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
                   alt=""
                   srcset=""
                 />
-                <a class="yunderline" href="Dogs"><h2 class="subyellow">Dogs</h2></a>
+                <h2 class="subyellow">Dogs</h2></a>
               </div>
             </div>
             <div class="row adopt">
               <div class="col-12">
+                <a class="yunderline" href="Others">
                 <img
                   class="img-fluid"
                   src="https://images.unsplash.com/photo-1589643989849-b4cef7873cd4?ixlib=rb-1.2.1&ixid=MnwxM[…]G90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
                   alt=""
                   srcset=""
                 />
-                <a class="yunderline" href="Others"><h2 class="subyellow">Other Animals</h2></a>
+                <h2 class="subyellow">Other Animals</h2></a>
               </div>
             </div>
           </div>
@@ -171,6 +174,12 @@ export default {
 }
 
 .col-12 > img {
+  border-radius: 50%;
+  border: 7px solid rgb(255, 255, 230);
+}
+
+.col-12 > a >img {
+  width: 69%;
   border-radius: 50%;
   border: 7px solid rgb(255, 255, 230);
 }
