@@ -128,6 +128,7 @@
             <p class="paragraph fluid">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
             </p>
+            <a class="subheading" href="/MeetTheTeam"><h2 class="subheading">Click To Meet The Team</h2></a>
           </div>
         </div>
       </main>

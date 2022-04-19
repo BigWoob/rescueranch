@@ -17,6 +17,9 @@ import ListApplicants from '../views/ListApplicants.vue'
 import AddPet from '../views/AddPet.vue'
 import ConfirmPet from '../views/ConfirmPet.vue'
 import MeetTheTeam from '../views/MeetTheTeam.vue'
+import EditPets from '../views/EditPets.vue'
+import PetInfo from '../views/PetInfo.vue'
+import Adopt from '../views/Adopt.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -158,6 +161,30 @@ const router = new Router({
             path: "/meettheteam",
             name: "meettheteam",
             component: MeetTheTeam,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/editpets",
+            name: "editpets",
+            component: EditPets,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/petinfo",
+            name: "petinfo",
+            component: PetInfo,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/adopt",
+            name: "adopt",
+            component: Adopt,
             meta: {
                 requiresAuth: false
             }

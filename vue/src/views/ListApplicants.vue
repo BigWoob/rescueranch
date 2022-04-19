@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-default />
-    <navbar class="sticky-top" />
+    <logged-in-navbar class="sticky-top" />
 
     <div class="mission">
       <h2 class="subheading">Pending Applicants</h2>
@@ -42,11 +42,11 @@
 <script>
 import HeaderDefault from "../components/HeaderDefault.vue";
 import ApplicantService from "../services/ApplicantService";
-import Navbar from "../components/Navbar.vue";
 import FooterDefault from "../components/FooterDefault";
+import LoggedInNavbar from '../components/LoggedInNavbar.vue';
 
 export default {
-  components: { HeaderDefault, Navbar, FooterDefault },
+  components: { HeaderDefault, FooterDefault, LoggedInNavbar },
   data() {
     return {
       applicants: [],

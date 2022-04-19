@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-default />
-    <navbar class="sticky-top" />
+    <logged-in-navbar class="sticky-top" />
 
     <div class="mission">
       <h2 class="subheading">The Rescue Ranchers</h2>
@@ -26,11 +26,11 @@
 import RancherService from "../services/RancherService";
 import RancherDisplay from "../components/RancherDisplay.vue";
 import HeaderDefault from "../components/HeaderDefault.vue";
-import Navbar from "../components/Navbar.vue";
 import FooterDefault from "../components/FooterDefault";
+import LoggedInNavbar from '../components/LoggedInNavbar.vue';
 
 export default {
-  components: { RancherDisplay, HeaderDefault, Navbar, FooterDefault },
+  components: { RancherDisplay, HeaderDefault, FooterDefault, LoggedInNavbar },
   data() {
     return {
       users: [],

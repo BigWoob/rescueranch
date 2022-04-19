@@ -12,8 +12,8 @@
       v-for="pet in pets"
       v-bind:key="pet.petId"
       v-bind:pet="pet"
+      v-model="pet.petName"
     />
-
 
      <!--<div class="d-flex justify-content-space-evenly redback">
       <div class="row adopt">
