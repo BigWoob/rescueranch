@@ -2,7 +2,6 @@
   <div>
       <header-default />
       <navbar />
-       <h1>{{ pet.petName }}</h1>
   </div>
 </template>
 
