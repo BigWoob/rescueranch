@@ -11,7 +11,6 @@
 
         <h2 class="subyellow">{{ pet.petName }}</h2>
         <p>{{ pet.animalDescription }}</p>
-        <p>Animal Type: {{ pet.animalType }}</p>
         <p>Sex: {{ pet.animalGender }}</p>
         <p>Breed: {{ pet.petBreed }}</p>
         <p>Age:{{ pet.age }}</p>
@@ -23,21 +22,19 @@
             >
           </div>
 
-          <div class="view-btn">
-            <a href="/PetInfo/" type="button" class="btn btn-outline"
-              >About {{ pet.petName }}</a
-            >
+         
+        
 
-            <router-link
+            <router-link class="btn btn-outline"
               v-bind:to="{ name: 'petinfo', params: { id: pet.petId } }"
-            >
-              See Details
+            tag="button">
+              About {{ pet.petName }}
             </router-link>
           </div>
         </div>
       </div>
     </div>
-  </div>
+ 
 </template>
 
 <script>
@@ -47,6 +44,9 @@ export default {
 </script>
 
 <style>
+body {
+  background-color: rgb(155, 34, 38);
+}
 .holdBtn {
   justify-content: center;
 }

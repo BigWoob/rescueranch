@@ -2,27 +2,32 @@
   <div>
       <header-default />
       <navbar />
-      <div 
-      class="pet d-flex justify-content-space-evenly redback"
-      v-for="pet in pets"
-      v-bind:key="pet.petId"
-      v-bind:pet="pet">
-       <img
+
+    <div>
+     <div class="row adopt">
+     <div class="col-12 adoptable">
+        <img
           :src="pet.pictureOne"
           alt=""
           srcset=""
           class="img-fluid petImage"
         />
-       <h2 class="subyellow">{{ pet.petName }}</h2>
+
+        <h2 class="subyellow">{{ pet.petName }}</h2>
         <p>{{ pet.animalDescription }}</p>
-        <p>Animal Type: {{ pet.animalType }}</p>
         <p>Sex: {{ pet.animalGender }}</p>
         <p>Breed: {{ pet.petBreed }}</p>
-        <p>Age:{{ pet.age }}</p>
-        <p>Available: Yes</p>
-      </div>
-
-      
+        <p>Age: {{ pet.age }}</p>
+        <div class="d-flex holdBtn">
+          <div class="view-btn">
+            <a href="/Adopt" type="button" class="btn btn-outline"
+              >Adopt {{ pet.petName }}</a
+            >
+          </div>
+   </div>
+     </div>
+</div>   
+  </div>
   </div>
 </template>
 
@@ -35,13 +40,13 @@ export default {
   data() {
     return {
       name: 'petinfo',
-      pets: {},
+      pet: {}
     };
   },
 
   created() {
     petService.getPetById(this.$route.params.id).then((response) => {
-      this.pets = response.data;
+      this.pet = response.data;
     });
   },
 };
