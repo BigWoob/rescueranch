@@ -39,6 +39,7 @@
         <button type="submit">Sign in</button>
       </form>
     </div>
+    <footer-default />
   </div>
 </template>
 
@@ -46,9 +47,11 @@
 import HeaderDefault from '../components/HeaderDefault.vue';
 import authService from "../services/AuthService";
 import Navbar from "../components/Navbar.vue";
+import FooterDefault from "../components/FooterDefault";
+
 export default {
   name: "login",
-  components: {HeaderDefault, Navbar},
+  components: {HeaderDefault, Navbar, FooterDefault},
   data() {
     return {
       user: {

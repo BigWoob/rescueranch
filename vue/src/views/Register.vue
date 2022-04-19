@@ -41,6 +41,7 @@
       </button>
     </form>
   </div>
+  <footer-default />
   </div>
 </template>
 
@@ -48,9 +49,10 @@
 import HeaderDefault from '../components/HeaderDefault.vue';
 import Navbar from '../components/Navbar.vue';
 import authService from '../services/AuthService';
+import FooterDefault from "../components/FooterDefault";
 
 export default {
-  components: { HeaderDefault, Navbar },
+  components: { HeaderDefault, Navbar, FooterDefault },
   name: 'register',
   data() {
     return {

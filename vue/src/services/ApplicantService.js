@@ -6,7 +6,6 @@ export default {
 
     addApplicant(applicant) {
         return axios.post('/apply', applicant);
-
     },
 
     getApplicants(user) {
@@ -17,7 +16,7 @@ export default {
         return axios.post(`/approve/${applicant}`)
     },
 
-    deleteApplicant(applicant, user) {
-        return axios.put(`/deny/${applicant.id}`, user)
+    denyApplicant(applicant) {
+        return axios.put(`/deny/${applicant}`)
     }
 }

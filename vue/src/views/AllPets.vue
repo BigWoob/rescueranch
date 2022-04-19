@@ -12,8 +12,8 @@
       v-for="pet in pets"
       v-bind:key="pet.petId"
       v-bind:pet="pet"
+      v-model="pet.petName"
     />
-
 
      <!--<div class="d-flex justify-content-space-evenly redback">
       <div class="row adopt">
@@ -66,6 +66,7 @@
         </div>
       </div>
     </div> -->
+    <footer-default />
   </div>
 </template>
 
@@ -73,12 +74,13 @@
 import petService from "../services/PetService";
 import HeaderDefault from "../components/HeaderDefault";
 import PetDisplay from '../components/PetDisplay.vue';
-import Navbar from '../components/Navbar.vue'
+import Navbar from '../components/Navbar.vue';
+import FooterDefault from "../components/FooterDefault";
 
 
 
 export default {
-  components: { HeaderDefault, PetDisplay, Navbar}, 
+  components: { HeaderDefault, PetDisplay, Navbar, FooterDefault}, 
   data() {
     return {
       pets: [],

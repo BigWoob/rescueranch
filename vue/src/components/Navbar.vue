@@ -1,13 +1,13 @@
 <template>
   <div>
-    <b-navbar type="dark"
+    <b-navbar
+      type="dark"
       id="nav"
       role="navigation"
       class="
         navbar
         bd-navbar
-        flex-column 
-        flex-md-row
+        flex-column flex-md-row
         navbar-expand
         nav-item
         sticky-top
@@ -15,9 +15,22 @@
       "
     >
       <b-navbar-nav class="d-flex justify-content-center">
-        <b-nav-item href="/" class="nav-item justify-content-end navbar-item"
-          >Home</b-nav-item
+        <b-nav-item
+          class="nav-item justify-content-end navbar-item yunderline smarthome"
         >
+          <router-link
+            class="smarthome"
+            v-bind:to="{ name: 'home' }"
+            v-if="$store.state.token.length == 0"
+            ><div class="smarthome">Home</div></router-link
+          >&nbsp;&nbsp;
+          <router-link
+            class="smarthome"
+            v-bind:to="{ name: 'loggedinhome' }"
+            v-if="$store.state.token.length > 1"
+            >Home</router-link
+          >
+        </b-nav-item>
 
         <b-nav-item-dropdown text="Adopt" right class="nav-item">
           <b-dropdown-item href="/AllPets">See All Animals</b-dropdown-item>
@@ -30,12 +43,10 @@
           <b-dropdown-item navbar-item href="/ApplyToVolunteer"
             >Join The Team</b-dropdown-item
           >
-          <b-dropdown-item href="https://www.linkedin.com/in/joe-righetti/"
-            >Meet The Team</b-dropdown-item
-          >
+          <b-dropdown-item href="/MeetTheTeam">Meet The Team</b-dropdown-item>
         </b-nav-item-dropdown>
 
-        <b-nav-item class="mr-auto navbar-item" href="#A">About Us</b-nav-item>
+        <b-nav-item class="mr-auto navbar-item" href="/#A">About Us</b-nav-item>
 
         <a class="nav-link navbar-item" href="/dono"
           ><i class="fa fa-heart"></i> Donate<span class="sr-only"
@@ -43,9 +54,28 @@
           ></a
         >
 
-        <b-nav-item href="/login" class="nav-item justify-content-end log"
-          >Login</b-nav-item
-        >
+        <b-navbar-nav class="d-flex justify-content-center">
+          <b-nav-item
+            href="/"
+            class="nav-item justify-content navbar-item smarthome"
+          >
+            <router-link
+              class="smarthome"
+              v-bind:to="{ name: 'login' }"
+              v-if="$store.state.token.length == 0"
+              >Login</router-link
+            >&nbsp;&nbsp;
+            <router-link
+              class="smarthome"
+              v-bind:to="{ name: 'logout' }"
+              v-if="$store.state.token.length > 1"
+              >Logout</router-link
+            >
+          </b-nav-item>
+        </b-navbar-nav>
+
+        <!-- <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token.length == 0" class="nav-item justify-content-end log">Login</router-link>&nbsp;&nbsp;
+  <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token.length >1" class="nav-item justify-content-end log">Logout</router-link>  -->
       </b-navbar-nav>
     </b-navbar>
   </div>
@@ -74,6 +104,20 @@ log {
   color: rgb(255, 255, 230) !important;
 }
 b-dropdown-item {
-   color: rgb(255, 255, 230) !important;
+  color: rgb(255, 255, 230) !important;
 }
+
+.smarthome {
+  color: rgb(255, 255, 230) !important;
+  opacity: 0.75;
+}
+
+.smarthome:hover {
+  opacity: 0.9;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
 </style>

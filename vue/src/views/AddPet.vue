@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-default />
-    <navbar class="sticky-top" />
+    <logged-in-navbar class="sticky-top" />
     <h2 class="subheading">Add A Pet</h2>
 
     <div>
@@ -96,12 +96,14 @@
         </div> 
       </form>
     </div>
+    <footer-default />
   </div>
 </template>
 
 <script>
+import FooterDefault from "../components/FooterDefault";
 import HeaderDefault from "../components/HeaderDefault.vue";
-import Navbar from "../components/Navbar.vue";
+import LoggedInNavbar from '../components/LoggedInNavbar.vue';
 import PetService from "../services/PetService";
 
 export default {
@@ -123,7 +125,7 @@ export default {
     };
   },
 
-  components: { HeaderDefault, Navbar },
+  components: { HeaderDefault, FooterDefault, LoggedInNavbar },
 
   methods: {
     submitForm() {

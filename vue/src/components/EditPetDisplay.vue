@@ -16,17 +16,7 @@
         <p>Breed: {{ pet.petBreed }}</p>
         <p>Age:{{ pet.age }}</p>
         <p>Available: Yes</p>
-        <div class="d-flex holdBtn">
-          <div class="view-btn">
-            <a href="/Adopt" type="button" class="btn btn-outline"
-              >Adopt {{ pet.petName }}</a>
-          </div>
-
-          <div class="view-btn">
-            <a href="/PetInfo" type="button" class="btn btn-outline"
-              >About {{ pet.petName }}</a>
-          </div>
-        </div>
+        <button type="button" class="btn btn-outline">EDIT</button>
       </div>
     </div>
   </div>
@@ -39,12 +29,15 @@ export default {
 </script>
 
 <style>
-.holdBtn {
-  justify-content: center;
+.btn-outline {
+  border: 2px solid rgb(255, 255, 230);
+  color: rgb(155, 34, 38);
+  background-color: rgb(255, 255, 230);
 }
 
-.view-btn {
-  margin-right: 5px;
-  margin-left: 5px;
+.btn-outline:hover {
+  border: 2px solid rgb(255, 255, 230);
+  color: rgb(255, 255, 230);
+  background-color: rgb(155, 34, 38);
 }
 </style>

@@ -13,59 +13,8 @@
       </div>
     </header>
   </div> 
-  <div>
- <b-navbar
-      id="nav"
-      role="navigation"
-      class="
-        navbar
-        bd-navbar
-        flex-column flex-md-row
-        navbar-expand
-        nav-item
-        sticky-top
-        navbar-custom
-      "
-    >
-      <b-navbar-nav class="d-flex justify-content-center">
-        <b-nav-item href="/LoggedInHome" class="nav-item justify-content-end navbar-item"
-          >Home</b-nav-item
-        >
-
-        <b-nav-item-dropdown text="Adopt" right class="nav-item">
-          <b-dropdown-item href="/AllPets">See All Animals</b-dropdown-item>
-          <b-dropdown-item href="/Cats">Cats and Kittens</b-dropdown-item>
-          <b-dropdown-item href="/Dogs">Dogs and Puppies</b-dropdown-item>
-          <b-dropdown-item href="/Others">Other Animals</b-dropdown-item>
-        </b-nav-item-dropdown>
-
-        <b-nav-item-dropdown text="Volunteer" right>
-          <b-dropdown-item navbar-item href="/ApplyToVolunteer"
-            >Join The Team</b-dropdown-item
-          >
-          <b-dropdown-item href="https://www.linkedin.com/in/joe-righetti/"
-            >Meet The Team</b-dropdown-item
-          >
-        </b-nav-item-dropdown>
-
-        <b-nav-item class="mr-auto navbar-item" href="/ListApplicants">Applicants</b-nav-item>
-        <b-nav-item class="mr-auto navbar-item" href="#A">About Us</b-nav-item>
-
-        <b-nav-item class="mr-auto navbar-item" href="/AddPet">Add a Pet</b-nav-item>
-
-        
-
-        <a class="nav-link navbar-item" href="/dono"
-          ><i class="fa fa-heart"></i> Donate<span class="sr-only"
-            >(current)</span
-          ></a
-        >
-
-        <b-nav-item href="/logout" class="nav-item justify-content-end log"
-          >Logout</b-nav-item
-        >
-      </b-navbar-nav>
-    </b-navbar>
+  
+  <logged-in-navbar class="sticky-top" />
 
 
     <body>
@@ -183,22 +132,23 @@
             <p class="paragraph">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
             </p>
+            <a class="subheading" href="/MeetTheTeam"><h2 class="subheading">Click To Meet The Team</h2></a>
           </div>
         </div>
       </main>
     </body>
-    <footer>
-      <div class="foot">
-      “When you look into the eyes of an animal you’ve rescued, you can’t help but fall in love.” — <a class="paul" href="https://en.wikipedia.org/wiki/Paul_Shaffer"> Paul Shaffer</a>
-      </div>
-    </footer>
+    <footer-default />
   </div>
 
-  </div>
 </template>
 
 <script>
+import FooterDefault from "../components/FooterDefault";
+import LoggedInNavbar from "../components/LoggedInNavbar";
 
+export default {
+  components: { FooterDefault, LoggedInNavbar }
+};
 </script>
 
 <style>
