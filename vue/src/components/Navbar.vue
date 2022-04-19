@@ -15,9 +15,13 @@
       "
     >
       <b-navbar-nav class="d-flex justify-content-center">
-        <b-nav-item href="/" class="nav-item justify-content-end navbar-item"
-          >Home</b-nav-item
+        <b-nav-item  class="nav-item justify-content-end navbar-item yunderline smarthome"
+          > <router-link class="smarthome" v-bind:to="{ name: 'home' }" v-if="$store.state.token.length == 0"><div class="smarthome">Home</div></router-link>&nbsp;&nbsp;
+  <router-link  class="smarthome" v-bind:to="{ name: 'loggedinhome' }" v-if="$store.state.token.length >1">Home</router-link> </b-nav-item
         >
+     
+
+       
 
         <b-nav-item-dropdown text="Adopt" right class="nav-item">
           <b-dropdown-item href="/AllPets">See All Animals</b-dropdown-item>
@@ -43,9 +47,21 @@
           ></a
         >
 
-        <b-nav-item href="/login" class="nav-item justify-content-end log"
-          >Login</b-nav-item
-        >
+
+  <b-navbar-nav class="d-flex justify-content-center">
+        <b-nav-item href="/" class="nav-item justify-content navbar-item smarthome"> 
+           <router-link class="smarthome" v-bind:to="{ name: 'login' }" v-if="$store.state.token.length == 0">Login</router-link>&nbsp;&nbsp;
+  <router-link  class="smarthome" v-bind:to="{ name: 'logout' }" v-if="$store.state.token.length >1" >Logout</router-link> 
+
+          </b-nav-item>
+
+  </b-navbar-nav>
+
+
+
+ <!-- <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token.length == 0" class="nav-item justify-content-end log">Login</router-link>&nbsp;&nbsp;
+  <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token.length >1" class="nav-item justify-content-end log">Logout</router-link>  -->
+
       </b-navbar-nav>
     </b-navbar>
   </div>
@@ -76,4 +92,25 @@ log {
 b-dropdown-item {
    color: rgb(255, 255, 230) !important;
 }
+
+.smarthome{
+  color: rgb(255, 255, 230) !important;
+  opacity: .75;
+
+}
+
+.smarthome:hover{
+  opacity: .9;
+}
+
+a:hover{
+  
+  text-decoration: none;
+
+}
+
+homeb>smarthome{
+  text-decoration: none !important;
+}
+
 </style>
