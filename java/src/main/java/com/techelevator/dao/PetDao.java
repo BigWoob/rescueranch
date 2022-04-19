@@ -12,4 +12,5 @@ public interface PetDao {
     Pet addPet(Pet pet);
     Pet updatePet(Pet pet);
     boolean removePet(Long id);
+    Pet getPetById(Long id);
 }

@@ -77,6 +77,10 @@ public class AccessController {
                 return accountDao.acceptApplicant(id);
         }
 
+        @PreAuthorize("permitAll")
+        @RequestMapping(value = "/petinfo/{id}", method = RequestMethod.GET)
+        public Pet getIndividualPet(@PathVariable Long id){return petDao.getPetById(id);}
+
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/deny/{id}", method = RequestMethod.PUT)
         public boolean deny(@PathVariable Long id){return accountDao.denyApplicant(id);}
