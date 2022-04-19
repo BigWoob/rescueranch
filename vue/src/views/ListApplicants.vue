@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-default />
-    <navbar />
+    <navbar class="sticky-top" />
 
     <div class="mission">
       <h2 class="subheading">Pending Applicants</h2>
@@ -31,10 +31,11 @@
 
 
           <button v-on:click="approveApplicant(applicant.id)">APPROVE</button>
-          <button v-on:click="deleteApplicant(applicant.id)">DENY</button> 
+          <button v-on:click="denyApplicant(applicant.id)">DENY</button> 
         </div>
       </div>
     </form>
+    <footer-default />
   </div>
 </template>
 
@@ -42,25 +43,30 @@
 import HeaderDefault from "../components/HeaderDefault.vue";
 import ApplicantService from "../services/ApplicantService";
 import Navbar from "../components/Navbar.vue";
+import FooterDefault from "../components/FooterDefault";
 
 export default {
-  components: { HeaderDefault, Navbar },
+  components: { HeaderDefault, Navbar, FooterDefault },
   data() {
     return {
       applicants: [],
     };
   },
+
   created() {
     ApplicantService.getApplicants().then((response) => {
       this.applicants = response.data;
     });
   },
-  methods: { approveApplicant(id){
-    ApplicantService.approveApplicant(id)
-  }
 
-  }
-};
+  methods: { 
+    approveApplicant(id){
+    ApplicantService.approveApplicant(id)
+  },
+  denyApplicant(id){
+    ApplicantService.denyApplicant(id)
+  },
+  }};
 </script>
 
 <style>

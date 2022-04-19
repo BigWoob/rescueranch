@@ -46,14 +46,17 @@
            
         <button onClick="window.location.href='/ThankYou';"><input type="submit" value="Donate"/></button>      
         </form>
+        <footer-default />
   </div>
 </template>
 
 <script>
-import HeaderDefault from '../components/HeaderDefault.vue'
-import Navbar from '../components/Navbar.vue'
+import HeaderDefault from '../components/HeaderDefault.vue';
+import Navbar from '../components/Navbar.vue';
+import FooterDefault from "../components/FooterDefault";
+
 export default {
-  components: { HeaderDefault, Navbar },
+  components: { HeaderDefault, Navbar, FooterDefault },
 
 }
 </script>

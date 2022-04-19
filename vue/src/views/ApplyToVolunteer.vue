@@ -8,7 +8,7 @@
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="inputUsername">Username</label>
-            <inputnp
+            <input
               type="text"
               class="form-control"
               id="inputUsername"
@@ -86,6 +86,7 @@
         <input type="submit" value="Submit" />
       </form>
     </div>
+    <footer-default />
   </div>
 </template>
 
@@ -93,6 +94,7 @@
 import HeaderDefault from '../components/HeaderDefault.vue';
 import Navbar from '../components/Navbar.vue';
 import ApplicantService from "../services/ApplicantService";
+import FooterDefault from "../components/FooterDefault";
 
 
 export default {
@@ -111,7 +113,7 @@ export default {
     };
   },
 
-  components: { HeaderDefault, Navbar},
+  components: { HeaderDefault, Navbar, FooterDefault},
 
   methods: {
     submitForm() {

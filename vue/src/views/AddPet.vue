@@ -96,10 +96,12 @@
         </div> 
       </form>
     </div>
+    <footer-default />
   </div>
 </template>
 
 <script>
+import FooterDefault from "../components/FooterDefault";
 import HeaderDefault from "../components/HeaderDefault.vue";
 import Navbar from "../components/Navbar.vue";
 import PetService from "../services/PetService";
@@ -123,7 +125,7 @@ export default {
     };
   },
 
-  components: { HeaderDefault, Navbar },
+  components: { HeaderDefault, Navbar, FooterDefault },
 
   methods: {
     submitForm() {

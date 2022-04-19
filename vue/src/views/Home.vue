@@ -132,20 +132,19 @@
         </div>
       </main>
     </body>
-    <footer>
-      <div class="foot">
-      “When you look into the eyes of an animal you’ve rescued, you can’t help but fall in love.” — <a class="paul" href="https://en.wikipedia.org/wiki/Paul_Shaffer"> Paul Shaffer</a>
-      </div>
-    </footer>
+    <footer-default />
 
   </div>
 </template>
 
 <script>
 import Navbar from '../components/Navbar.vue';
+import FooterDefault from "../components/FooterDefault";
+
 
 export default {
-  components: { Navbar }, Navbar };
+  components: { Navbar, FooterDefault },
+};
 </script>
 
 <style>

@@ -16,6 +16,7 @@ import LoggedInHome from '../views/LoggedInHome.vue'
 import ListApplicants from '../views/ListApplicants.vue'
 import AddPet from '../views/AddPet.vue'
 import ConfirmPet from '../views/ConfirmPet.vue'
+import MeetTheTeam from '../views/MeetTheTeam.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -149,6 +150,14 @@ const router = new Router({
             path: "/addpet",
             name: "addpet",
             component: AddPet,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/meettheteam",
+            name: "meettheteam",
+            component: MeetTheTeam,
             meta: {
                 requiresAuth: false
             }

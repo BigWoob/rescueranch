@@ -50,6 +50,7 @@
 
         <b-nav-item class="mr-auto navbar-item" href="/ListApplicants">Applicants</b-nav-item>
         <b-nav-item class="mr-auto navbar-item" href="#A">About Us</b-nav-item>
+        <b-nav-item class="mr-auto navbar-item" href="/RancherList">Ranchers</b-nav-item>
 
         <b-nav-item class="mr-auto navbar-item" href="/AddPet">Add a Pet</b-nav-item>
 
@@ -187,18 +188,18 @@
         </div>
       </main>
     </body>
-    <footer>
-      <div class="foot">
-      “When you look into the eyes of an animal you’ve rescued, you can’t help but fall in love.” — <a class="paul" href="https://en.wikipedia.org/wiki/Paul_Shaffer"> Paul Shaffer</a>
-      </div>
-    </footer>
+    <footer-default />
   </div>
 
   </div>
 </template>
 
 <script>
+import FooterDefault from "../components/FooterDefault";
 
+export default {
+  components: { FooterDefault }
+};
 </script>
 
 <style>

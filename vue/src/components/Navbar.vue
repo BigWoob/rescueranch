@@ -30,12 +30,12 @@
           <b-dropdown-item navbar-item href="/ApplyToVolunteer"
             >Join The Team</b-dropdown-item
           >
-          <b-dropdown-item href="https://www.linkedin.com/in/joe-righetti/"
+          <b-dropdown-item href="/MeetTheTeam"
             >Meet The Team</b-dropdown-item
           >
         </b-nav-item-dropdown>
 
-        <b-nav-item class="mr-auto navbar-item" href="#A">About Us</b-nav-item>
+        <b-nav-item class="mr-auto navbar-item" href="/#A">About Us</b-nav-item>
 
         <a class="nav-link navbar-item" href="/dono"
           ><i class="fa fa-heart"></i> Donate<span class="sr-only"

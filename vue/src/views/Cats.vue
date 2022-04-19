@@ -31,6 +31,7 @@
         </div>
       </div>
     </div> -->
+    <footer-default />
   </div>
 </template>
 
@@ -39,8 +40,10 @@ import HeaderDefault from "../components/HeaderDefault";
 import petService from "../services/PetService";
 import PetDisplay from '../components/PetDisplay.vue'
 import Navbar from '../components/Navbar.vue'
+import FooterDefault from "../components/FooterDefault";
+
 export default {
-  components: { HeaderDefault, PetDisplay, Navbar},
+  components: { HeaderDefault, PetDisplay, Navbar, FooterDefault},
   data() {
     return {
       pets: [],

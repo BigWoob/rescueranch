@@ -2,9 +2,9 @@
 
   <div>
       <div class="row adopt">
-        <div class="col-12 adoptable">
+        <div class="col-12 volunteer">
         <!--  <img :src="pet.pictureOne" alt="" srcset="" class="img-fluid" /> -->
-          <h3 class="subyellow">{{ user.fullName }}</h3>
+          <h3 class="subRedding">{{ user.fullname }}</h3>
           <p>Email: {{ user.email }}</p>
           <p>Phone: {{ user.phoneNumber }}</p>
         </div>
