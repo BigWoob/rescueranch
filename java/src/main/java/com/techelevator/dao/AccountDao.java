@@ -12,4 +12,6 @@ public interface AccountDao {
     boolean acceptApplicant(Long id);
     boolean denyApplicant(Long id);
     List<Account> getAllRanchers();
+    boolean removeUser(Long id);
+    boolean promoteUser(Long id);
 }

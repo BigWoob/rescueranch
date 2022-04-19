@@ -1,16 +1,20 @@
 package com.techelevator.controller;
 
 import com.techelevator.dao.AccountDao;
+import com.techelevator.dao.AdoptionDao;
+import com.techelevator.dao.EmailServiceImpl;
 import com.techelevator.dao.PetDao;
 import com.techelevator.model.*;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.*;
 
 @PreAuthorize("isAuthenticated()")
 @RestController
 @CrossOrigin
 public class AccessController {
+
 
         /*
         spring.datasource.username=final_capstone_appuser
@@ -19,10 +23,19 @@ public class AccessController {
 
         private PetDao petDao;
         private AccountDao accountDao;
+        private AdoptionDao adoptionDao;
+        private EmailServiceImpl emailService;
+        private final String header = "Rescue Ranch: Application Approved!";
+        private final String adoptionBody = "Congratulations! Your adoption application for a pet Rescue Ranch has been approved! We will contact you within 48 hours to follow up on next steps!";
+        private final String volunteerBody = "Congratulations! Your volunteer application for Rescue Ranch has been approved! Please proceed to login at https://www.rescueranch.io/login";
 
-        public AccessController(PetDao petDao, AccountDao accountDao) {
+
+
+        public AccessController(PetDao petDao, AccountDao accountDao, AdoptionDao adoptionDao, EmailServiceImpl emailService) {
             this.petDao = petDao;
             this.accountDao = accountDao;
+            this.adoptionDao = adoptionDao;
+            this.emailService = emailService;
         }
 
         @PreAuthorize("permitAll")
@@ -58,7 +71,11 @@ public class AccessController {
 
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/approve/{id}", method = RequestMethod.POST)
-        public boolean approve(@PathVariable Long id){return accountDao.acceptApplicant(id);}
+        public boolean approve(@PathVariable Long id){
+                String email = accountDao.getAccount(id).getEmail();
+                emailService.sendSimpleMessage(email,header,volunteerBody);
+                return accountDao.acceptApplicant(id);
+        }
 
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/deny/{id}", method = RequestMethod.PUT)
@@ -72,5 +89,24 @@ public class AccessController {
 
         @RequestMapping(value = "/removepet/{id}", method = RequestMethod.PUT)
         public boolean removePet(@PathVariable Long id){return petDao.removePet(id);}
+
+        @RequestMapping(value = "/newadoptionapplication", method = RequestMethod.POST)
+        public AdoptionApplication createNewAdoption(@RequestBody AdoptionApplication adoptionApplication){return adoptionDao.createNewAdoption(adoptionApplication);}
+
+        @PreAuthorize("hasRole('ADMIN')")
+        @RequestMapping(value = "/approveadoption/{id}", method = RequestMethod.PUT)
+        public boolean approveAdoption(@PathVariable Long id){
+                String email = adoptionDao.getApplicationById(id).getAdopter_email();
+                emailService.sendSimpleMessage(email,header,adoptionBody);
+                return adoptionDao.approveAdoption(id);
+        }
+
+        @PreAuthorize("hasRole('ADMIN')")
+        @RequestMapping(value = "/removeuser/{id}", method = RequestMethod.PUT)
+        public boolean removeUser(@PathVariable Long id){return accountDao.removeUser(id);}
+
+        @PreAuthorize("hasRole('ADMIN')")
+        @RequestMapping(value = "/makeuseradmin/{id}", method = RequestMethod.PUT)
+        public boolean makeUserAdmin(@PathVariable Long id){return accountDao.promoteUser(id);}
 
 }

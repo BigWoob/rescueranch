@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users CASCADE;
 
 DROP SEQUENCE IF EXISTS seq_user_id;
 
@@ -52,7 +52,7 @@ TO final_capstone_appuser;
 
 
 
-DROP TABLE IF EXISTS applicants;
+DROP TABLE IF EXISTS applicants CASCADE;
 
 CREATE TABLE applicants (
 	applicant_id serial,
@@ -66,7 +66,7 @@ CREATE TABLE applicants (
 
 
 
-DROP TABLE IF EXISTS pets;
+DROP TABLE IF EXISTS pets CASCADE;
 
 CREATE TABLE pets (
 	pet_id serial,
@@ -99,7 +99,7 @@ INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one)
 INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('pig', 'f','Charlotte', 'american landrace', 2, 'Charlotte is very sweet and clean…for a pig', 'https://images.unsplash.com/photo-1516467508483-a7212febe31a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80');
 INSERT INTO pets (animal_type,gender,pet_name,breed,age,description,picture_one) VALUES('horse', 'm', 'Snowman', 'camarillo white', 3, 'Snowman is a gentle giant. He is a vegan.', 'https://images.unsplash.com/photo-1553284965-fa61e9ad4795?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80');
 
-DROP TABLE IF EXISTS accounts;
+DROP TABLE IF EXISTS accounts CASCADE;
 
 CREATE TABLE accounts(
 	account_id serial UNIQUE,
@@ -109,6 +109,27 @@ CREATE TABLE accounts(
 	CONSTRAINT FK_account FOREIGN KEY (previous_id) REFERENCES applicants (applicant_id),
 	CONSTRAINT FK_user FOREIGN KEY (aUser_id) REFERENCES users (user_id)
 );
+
+DROP TABLE IF EXISTS adoption_applications CASCADE;
+
+CREATE TABLE adoption_applications(
+	adoption_application_id serial UNIQUE,
+	adoption_application_pet_id int NOT NULL UNIQUE,
+	adopter_email VARCHAR(250) NOT NULL,
+	adopter_phone_number VARCHAR(10) NOT NULL,
+	adopter_name VARCHAR(250) NOT NULL,
+	adoption_status VARCHAR(250),
+	CONSTRAINT PK_adoption_application_id PRIMARY KEY (adoption_application_id),
+	CONSTRAINT FK_adoption_pet_id FOREIGN KEY (adoption_application_pet_id) REFERENCES pets (pet_id) 
+);
+
+--adoption_date?
+--CREATE TABLE adoptions(
+--adoption_id serial UNIQUE NOT NULL,
+--application_number int NOT NULL UNIQUE,
+--CONSTRAINT PK_adoptions_id PRIMARY KEY (adoption_id),
+--CONSTRAINT FK_adoption_application_id FOREIGN KEY (application_number) REFERENCES adoption_applications (adoption_application_id)
+--);
 
 COMMIT TRANSACTION;
 

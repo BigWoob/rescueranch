@@ -18,6 +18,21 @@ public class JdbcAccountDao implements AccountDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public boolean promoteUser(Long id){
+        String sql = "UPDATE users " +
+                     "SET role = ? " +
+                     "WHERE user_id = ?;";
+
+        return jdbcTemplate.update(sql,"ROLE_ADMIN",id) == 1;
+    }
+
+    public boolean removeUser(Long id){
+        String sql = "DELETE " +
+                     "FROM users "+
+                     "WHERE user_id = ?;";
+        return jdbcTemplate.update(sql,id) == 1;
+    }
+
     public List<Account> getAllRanchers(){
         List<Account> accounts = new ArrayList<>();
         String sql = "SELECT applicant_id, username, password_hash, full_name, email, phone_number " +
