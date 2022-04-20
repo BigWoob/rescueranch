@@ -37,6 +37,7 @@
           <b-dropdown-item href="/Cats">Cats and Kittens</b-dropdown-item>
           <b-dropdown-item href="/Dogs">Dogs and Puppies</b-dropdown-item>
           <b-dropdown-item href="/Others">Other Animals</b-dropdown-item>
+          <b-dropdown-item href="/AdoptedPets">Adopted Pets!</b-dropdown-item>
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown text="Volunteer" right>
