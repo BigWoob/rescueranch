@@ -29,6 +29,10 @@ export default {
 
     applyToAdopt(AdoptionApplication) {
         return axios.post('/newadoptionapplication', AdoptionApplication);
+    },
+
+    adoptedPets() {
+        return axios.get('/adoptedpets');
     }
 
 }
