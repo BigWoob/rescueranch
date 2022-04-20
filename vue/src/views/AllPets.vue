@@ -5,7 +5,6 @@
     <div class="mission">
       <h2 class="subheading">Your New Best Friend!</h2>
     </div>
-
     <div class="container-fluid">
       <div class="row adopt">
         <pet-display

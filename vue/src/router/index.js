@@ -184,7 +184,7 @@ const router = new Router({
             }
         },
         {
-            path: "/adopt/:id",
+            path: "/adopt",
             name: "adopt",
             component: Adopt,
             meta: {

@@ -40,9 +40,6 @@ export default {
     petService.getDogs().then((response) => {
       this.pets = response.data;
     });
-
-    //   this.$store.commit("Dogs");
-    //  this.$router.push("/Dogs");
   },
 };
 </script>

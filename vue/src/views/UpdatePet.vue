@@ -149,7 +149,7 @@ export default {
       if (newPet) {
         petService.updatePet(newPet).then((response) => {
           if (response.status === 200) {
-            this.$router.push("/allpets");
+            this.$router.push("/EditPets");
           }
         });
       }

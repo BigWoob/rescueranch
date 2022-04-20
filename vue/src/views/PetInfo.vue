@@ -20,7 +20,8 @@
         <div class="d-flex holdBtn">
           <div class="view-btn">
             <a href="/Adopt" type="button" class="btn btn-outline"
-              >Adopt {{ pet.petName }}</a>
+              >Adopt {{ pet.petName }}</a
+            >
           </div>
         </div>
       </div>
@@ -30,7 +31,7 @@
 </template>
 
 <script>
-import FooterDefault from '../components/FooterDefault.vue';
+import FooterDefault from "../components/FooterDefault.vue";
 import HeaderDefault from "../components/HeaderDefault.vue";
 import Navbar from "../components/Navbar.vue";
 import petService from "../services/PetService";

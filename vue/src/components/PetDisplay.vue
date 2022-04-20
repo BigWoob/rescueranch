@@ -47,9 +47,11 @@ export default {
 .col-4 > p {
   margin: 1px 0px 1px 0px;
   text-transform: capitalize;
+  font-weight: bold;
 }
 
 .col-4 > img {
   border-radius: 100%;
+  border: 3px solid rgb(255, 255, 230);
 }
 </style>
