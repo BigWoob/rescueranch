@@ -25,6 +25,7 @@ import LoggedInMeetTheTeam from '../views/LoggedInMeetTheTeam.vue'
 import AdoptedPets from '../views/AdoptedPets.vue'
 import store from '../store/index'
 
+
 Vue.use(Router)
 
 /**

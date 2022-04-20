@@ -2,7 +2,7 @@
   <div id="board">
     <header-default />
     <navbar class="sticky-top"/>
-  
+    <vue-firework />
     <div>
 
     <div class="mission">
@@ -31,8 +31,9 @@ import PetDisplay from "../components/PetDisplay.vue";
 import petService from "../services/PetService";
 import Navbar from "../components/Navbar";
 import FooterDefault from "../components/FooterDefault";
+import VueFirework from 'vue-firework';
 export default {
-  components: { HeaderDefault, PetDisplay, Navbar, FooterDefault },
+  components: { HeaderDefault, PetDisplay, Navbar, FooterDefault, VueFirework },
   data() {
     return {
       pets: [],
@@ -49,30 +50,6 @@ export default {
 </script>
 
 <style>
-@keyframes    firework-animation {
-    0% {background-color : #ff8426;}
-    25% {background-color : #fffc84;}
-    50% {background-color : #ff83f4;}
-    75% {background-color : #83b6ff;}
-    100% {background-color : #ff8426;}
-}
-@-webkit-keyframes firework-animation {
-    0% {background-color : #ff8426;}
-    25% {background-color : #fffc84;}
-    50% {background-color : #ff83f4;}
-    75% {background-color : #83b6ff;}
-    100% {background-color : #ff8426;}
-}
-.fireWorkParticle {
-    z-index : 999;
-    position: absolute;
-    height : 5px;
-    width : 5px;
-    border-radius : 5px;
-    animation-name : firework-animation;
-    animation-timing-function : linear;
-    animation-duration : 1s;
-    animation-iteration-count : infinite;
-}
+
 
 </style>
