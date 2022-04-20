@@ -22,6 +22,7 @@ import PetInfo from '../views/PetInfo.vue'
 import Adopt from '../views/Adopt.vue'
 import UpdatePet from '../views/UpdatePet.vue'
 import LoggedInMeetTheTeam from '../views/LoggedInMeetTheTeam.vue'
+import AdoptedPets from '../views/AdoptedPets.vue'
 import store from '../store/index'
 
 Vue.use(Router)
@@ -184,7 +185,7 @@ const router = new Router({
             }
         },
         {
-            path: "/adopt",
+            path: "/adopt/:id",
             name: "adopt",
             component: Adopt,
             meta: {
@@ -214,6 +215,15 @@ const router = new Router({
 
             meta: {
                 requiresAuth: true
+            }
+        },
+        {
+            path: "/adoptedpets",
+            name: "adoptedpets",
+            component: AdoptedPets,
+
+            meta: {
+                requiresAuth: false
             }
         }
 

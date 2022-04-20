@@ -17,11 +17,13 @@
         <p>Sex: {{ pet.animalGender }}</p>
         <p>Breed: {{ pet.petBreed }}</p>
         <p>Age: {{ pet.age }}</p>
-        <div class="d-flex holdBtn">
+         <div class="d-flex holdBtn">
           <div class="view-btn">
-            <a href="/Adopt" type="button" class="btn btn-outline"
-              >Adopt {{ pet.petName }}</a
-            >
+            <router-link class="btn btn-outline"
+              v-bind:to="{ name: 'adopt', params: { id: pet.petId } }"
+            tag="button">
+              Adopt {{ pet.petName }}
+            </router-link>
           </div>
         </div>
       </div>
