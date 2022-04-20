@@ -100,6 +100,7 @@ public class AccessController {
         @RequestMapping(value = "/removepet/{id}", method = RequestMethod.PUT)
         public boolean removePet(@PathVariable Long id){return petDao.removePet(id);}
 
+        @PreAuthorize("permitAll")
         @RequestMapping(value = "/newadoptionapplication", method = RequestMethod.POST)
         public AdoptionApplication createNewAdoption(@RequestBody AdoptionApplication adoptionApplication){return adoptionDao.createNewAdoption(adoptionApplication);}
 
