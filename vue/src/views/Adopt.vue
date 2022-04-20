@@ -62,13 +62,8 @@ export default {
    data() {
     return {
         pet: {},
-        AdoptionApplication: {
-        adoptionPetId: "{{ pet.petId }}",
-        adopterEmail: "",
-        adopterPhoneNumber: "",
-        adopterName: "",
-        applicationStatus: ""
-      },
+        AdoptionApplication: {},
+      
       //errorMsg: ""
     };
   },
@@ -78,11 +73,11 @@ export default {
   methods: {
     submitForm() {
       const newApplicant = {
-        adoptionPetId: this.pet.petId,
-        adopterEmail: this.AdoptionApplication.adopterEmail,
-        adopterPhoneNumber: this.AdoptionApplication.adopterPhoneNumber,
-        adopterName: this.AdoptionApplication.adopterName,
-        applicationStatus: this.AdoptionApplication.applicationStatus
+        adoption_pet_id: parseInt(this.pet.petId),
+        adopter_email: this.AdoptionApplication.adopterEmail,
+        adopter_phone_number: parseInt(this.AdoptionApplication.adopterPhoneNumber),
+        adopter_name: this.AdoptionApplication.adopterName,
+        application_status: this.AdoptionApplication.applicationStatus
   };
 
     if (newApplicant) {
