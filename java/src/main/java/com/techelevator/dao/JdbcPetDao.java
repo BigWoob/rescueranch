@@ -17,6 +17,20 @@ public class JdbcPetDao implements PetDao{
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    public List<Pet> getAllAdoptedPets(){
+        List<Pet> adoptedPets = new ArrayList<>();
+        String sql = "SELECT DISTINCT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
+                     "FROM pets " +
+                     "LEFT OUTER JOIN adoption_applications ON pets.pet_id = adoption_applications.adoption_application_pet_id " +
+                     "WHERE pet_id IN (SELECT adoption_applications.adoption_application_pet_id FROM adoption_applications WHERE adoption_applications.adoption_status ILIKE '%approved%');";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while(results.next()){
+            Pet pet = mapRowToPet(results);
+            adoptedPets.add(pet);
+        }
+        return adoptedPets;
+    }
+
     public boolean removePet(Long id){
         String sql = "DELETE " +
                      "FROM pets " +

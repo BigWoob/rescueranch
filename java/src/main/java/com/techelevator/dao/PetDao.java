@@ -4,13 +4,14 @@ import com.techelevator.model.Pet;
 import java.util.*;
 
 public interface PetDao {
-    List<Pet> findAll();
-    List<Pet> findAllDogs();
-    List<Pet> findAllCats();
-    List<Pet> findAllOtherAnimals();
-    List<Pet> getSearchResults(String input);
-    Pet addPet(Pet pet);
-    Pet updatePet(Pet pet);
-    boolean removePet(Long id);
-    Pet getPetById(Long id);
+    public List<Pet> findAll();
+    public List<Pet> findAllDogs();
+    public List<Pet> findAllCats();
+    public List<Pet> findAllOtherAnimals();
+    public List<Pet> getSearchResults(String input);
+    public Pet addPet(Pet pet);
+    public Pet updatePet(Pet pet);
+    public boolean removePet(Long id);
+    public Pet getPetById(Long id);
+    public List<Pet> getAllAdoptedPets();
 }
