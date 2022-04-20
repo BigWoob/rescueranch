@@ -6,39 +6,24 @@
     <div class="mission">
       <h2 class="subheading">Your New Best Friend!</h2>
     </div>
-
- <pet-display
-      class="pet d-flex justify-content-space-evenly redback"
-      v-for="pet in pets"
-      v-bind:key="pet.petId"
-      v-bind:pet="pet"
-    />
-    
-    <!-- <div
-      class="pet d-flex justify-content-space-evenly redback"
-      v-for="pet in pets"
-      v-bind:key="pet.petId"
-    >
+    <div class="container-fluid">
       <div class="row adopt">
-        <div class="col-12 adoptable">
-          <img :src="pet.pictureOne" alt="" srcset="" class="img-fluid" />
-          <h2 class="subyellow">{{ pet.petName }}</h2>
-          <p>Animal Type: {{ pet.animalType }}</p>
-          <p>Sex: {{ pet.animalGender }}</p>
-          <p>Breed: {{ pet.petBreed }}</p>
-          <p>Age:{{ pet.age }}</p>
-          <p>Available: Yes</p>
-        </div>
+        <pet-display
+          class="pet d-flex justify-content-space-evenly redback"
+          v-for="pet in pets"
+          v-bind:key="pet.petId"
+          v-bind:pet="pet"
+        />
       </div>
-    </div> -->
+    </div>
     <footer-default />
   </div>
 </template>
 
 <script>
-import HeaderDefault from '../components/HeaderDefault.vue';
-import PetDisplay from '../components/PetDisplay.vue'
-import Navbar from '../components/Navbar.vue';
+import HeaderDefault from "../components/HeaderDefault.vue";
+import PetDisplay from "../components/PetDisplay.vue";
+import Navbar from "../components/Navbar.vue";
 import petService from "../services/PetService";
 import FooterDefault from "../components/FooterDefault";
 
@@ -55,8 +40,8 @@ export default {
       this.pets = response.data;
     });
 
-   // this.$store.commit("Others");
-   // this.$router.push("/Others");
+    // this.$store.commit("Others");
+    // this.$router.push("/Others");
   },
 };
 </script>

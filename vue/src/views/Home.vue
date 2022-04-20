@@ -152,8 +152,6 @@ export default {
 </script>
 
 <style>
-#title {
-}
 .image {
   border: 10px solid rgb(255, 255, 230);
   border-radius: 50px;

@@ -23,7 +23,15 @@
           <div class="col-6 col-lg-4 col-xl-6">
             <h2 class="subheading">Our Mission</h2>
             <p class="paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Rescue Ranch of Tech Elevator is the world’s leading resource for
+              pets and pet owners. Our mission is to eliminate the needless
+              euthanasia of healthy and treatable pets across the world.
+              Formerly the Righetti Ranch Humane Society, Rescue Ranch and
+              Helping Hands Pet Rescue, we joined forces in 2018 to streamline
+              services for pets and the people who love them. Founded in The
+              Blue classroom over 10 days ago, Rescue Ranch of Tech Elevator is
+              committed to ensuring every healthy or treatable companion animal
+              in our region finds a loving, adoptive home.
             </p>
           </div>
 
@@ -132,7 +140,7 @@
             <p class="paragraph">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
             </p>
-            <a class="subheading" href="/MeetTheTeam"><h2 class="subheading">Click To Meet The Team</h2></a>
+            <a class="subheading" href="/LoggedInMeetTheTeam"><h2 class="subheading">Click To Meet The Team</h2></a>
           </div>
         </div>
       </main>

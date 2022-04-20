@@ -92,9 +92,9 @@ export default {
   color: rgb(255, 255, 230);
 }
 
-log {
-  background-color: rgb(255, 255, 230);
-  color: rgb(155, 34, 38);
+.log {
+  background-color: rgb(155, 34, 38);
+  color: rgb(255, 255, 230);
   border-radius: 15px;
 }
 
