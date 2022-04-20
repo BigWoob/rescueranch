@@ -6,6 +6,9 @@ export default {
     getAllPets() {
         return axios.get('/allpets');
     },
+    getPetById(id) {
+        return axios.get('/petinfo/'+ id);
+    },
     getCats() {
         return axios.get('/cats');
     },
@@ -18,7 +21,10 @@ export default {
 
     addPet(pet, user) {
         return axios.post('/addpet', pet, user);
-
     },
+
+    updatePet(pet) {
+        return axios.put('/updatepet', pet)
+    }
 
 }

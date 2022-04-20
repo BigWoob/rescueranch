@@ -5,13 +5,7 @@
     <div class="mission">
       <h2 class="subheading">Manage Pet Profiles</h2>
     </div>
-    <edit-pet-display 
-     class="pet d-flex justify-content-space-evenly redback"
-      v-for="pet in pets"
-      v-bind:key="pet.petId"
-      v-bind:pet="pet"
-      v-model="pet.petName"
-    />
+    <edit-pet-display />
     
   </div>
 </template>

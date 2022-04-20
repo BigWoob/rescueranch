@@ -3,7 +3,7 @@
     <header-default />
     <navbar class="sticky-top" />
         <h1>Thank You For Applying!</h1>
-        <h2>Click <a class="redHere" href="/">Here</a> To Return Home</h2>
+        <h2><a class="redHere" href="/">Click Here To Return Home</a></h2>
         <footer-default />
     </div>
 </template>
@@ -23,21 +23,18 @@ h1 {
 }
 
 @keyframes color-change {
-  0% { color: red; }
-  50% { color: blue; }
-  100% { color: yellow; }
+  0% { color: red; } 
+  14.3% { color: orange; }
+  28.6% { color: yellow; }
+  42.9% { color: green; }
+  57.2% { color: blue; }
+  71.5% { color: indigo; }
+  85.8% { color: violet; }
+  100% { color: palegreen; }
 }
 
 .redHere {
-  animation: color-change 1s infinite;
+  animation: color-change 8s infinite;
 }
-
-.redHere:hover {
-  color: rgb(155, 34, 38);
-  text-decoration: underline rgb(155, 34, 38);
-  animation: color-change 1s infinite;
-}
-
-
 
 </style>

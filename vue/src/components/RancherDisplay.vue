@@ -5,8 +5,8 @@
         <div class="col-12 volunteer">
         <!--  <img :src="pet.pictureOne" alt="" srcset="" class="img-fluid" /> -->
           <h3 class="subRedding">{{ user.fullname }}</h3>
-          <p>Email: {{ user.email }}</p>
-          <p>Phone: {{ user.phoneNumber }}</p>
+          <p class="vol-info">Email: {{ user.email }}</p>
+          <p class="vol-info">Phone: {{ user.phoneNumber }}</p>
         </div>
       </div>
   </div>
@@ -22,5 +22,13 @@ props: [
 </script>
 
 <style>
+
+.volunteer {
+  color: black;
+}
+
+.vol-info {
+  color: black;
+}
 
 </style>

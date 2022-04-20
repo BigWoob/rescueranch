@@ -59,6 +59,8 @@ export default {
   components: { HeaderDefault, Navbar, FooterDefault },
 
 }
+
+
 </script>
 
 <style>

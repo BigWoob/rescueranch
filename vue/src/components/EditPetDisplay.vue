@@ -1,7 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row adopt">
-      <div class="col-12 adoptable">
+      <div
+        class="pet d-flex redback col-3 adoptable viewFix"
+        v-for="pet in pets"
+        v-bind:key="pet.petId"
+        v-bind:pet="pet"
+      >
         <img
           :src="pet.pictureOne"
           alt=""
@@ -14,17 +19,37 @@
         <p>Animal Type: {{ pet.animalType }}</p>
         <p>Sex: {{ pet.animalGender }}</p>
         <p>Breed: {{ pet.petBreed }}</p>
-        <p>Age:{{ pet.age }}</p>
+        <p>Age: {{ pet.age }}</p>
         <p>Available: Yes</p>
-        <button type="button" class="btn btn-outline">EDIT</button>
+        <div class="d-flex holdBtn">
+          <div class="view-btn">
+            <router-link
+              class="btn btn-outline"
+              v-bind:to="{ name: 'updatepet', params: { id: pet.petId } }"
+              tag="button"
+            >
+              Edit {{ pet.petName }}'s Page
+            </router-link>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import petService from "../services/PetService";
 export default {
-  props: ["pet"],
+  data() {
+    return {
+      pets: [],
+    };
+  },
+  created() {
+    petService.getAllPets().then((response) => {
+      this.pets = response.data;
+    });
+  },
 };
 </script>
 
@@ -39,5 +64,23 @@ export default {
   border: 2px solid rgb(255, 255, 230);
   color: rgb(255, 255, 230);
   background-color: rgb(155, 34, 38);
+}
+
+.viewFix {
+  flex-direction: column;
+  align-items: center;
+  border-radius: 25px;
+  border: 10px solid rgb(255, 255, 230);
+}
+
+.col-3 > p {
+  margin: 1px 0px 1px 0px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.col-3 > img {
+  border-radius: 100%;
+  border: 3px solid rgb(255, 255, 230);
 }
 </style>

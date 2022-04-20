@@ -1,7 +1,6 @@
 <template>
-  <div class="container">
-    <div class="row adopt">
-      <div class="col-12 adoptable">
+  
+      <div class="pet d-flex redback col-4 adoptable viewFix">
         <img
           :src="pet.pictureOne"
           alt=""
@@ -11,25 +10,21 @@
 
         <h2 class="subyellow">{{ pet.petName }}</h2>
         <p>{{ pet.animalDescription }}</p>
-        <p>Animal Type: {{ pet.animalType }}</p>
         <p>Sex: {{ pet.animalGender }}</p>
         <p>Breed: {{ pet.petBreed }}</p>
-        <p>Age:{{ pet.age }}</p>
-        <p>Available: Yes</p>
+        <p>Age: {{ pet.age }}</p>
         <div class="d-flex holdBtn">
           <div class="view-btn">
-            <a href="/Adopt" type="button" class="btn btn-outline"
-              >Adopt {{ pet.petName }}</a>
-          </div>
-
-          <div class="view-btn">
-            <a href="/PetInfo" type="button" class="btn btn-outline"
-              >About {{ pet.petName }}</a>
+            <router-link class="btn btn-outline"
+              v-bind:to="{ name: 'petinfo', params: { id: pet.petId } }"
+            tag="button">
+              About {{ pet.petName }}
+            </router-link>
           </div>
         </div>
       </div>
-    </div>
-  </div>
+  
+ 
 </template>
 
 <script>
@@ -39,12 +34,24 @@ export default {
 </script>
 
 <style>
+
 .holdBtn {
   justify-content: center;
+  align-items: center;
 }
-
 .view-btn {
   margin-right: 5px;
   margin-left: 5px;
+}
+
+.col-4 > p {
+  margin: 1px 0px 1px 0px;
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.col-4 > img {
+  border-radius: 100%;
+  border: 3px solid rgb(255, 255, 230);
 }
 </style>

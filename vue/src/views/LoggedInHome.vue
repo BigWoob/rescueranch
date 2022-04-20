@@ -1,21 +1,20 @@
 <template>
   <div>
-      <div>
-    <header>
-      <div>
-        <img
-          id="title"
-          class="img-fluid"
-          src="../assets/images/jimmyredshoes.jpg"
-          alt="Title and Slogan"
-          srcset=""
-        />
-      </div>
-    </header>
-  </div> 
-  
-  <logged-in-navbar class="sticky-top" />
+    <div>
+      <header>
+        <div>
+          <img
+            id="title"
+            class="img-fluid"
+            src="../assets/images/jimmyredshoes.jpg"
+            alt="Title and Slogan"
+            srcset=""
+          />
+        </div>
+      </header>
+    </div>
 
+    <logged-in-navbar class="sticky-top" />
 
     <body>
       <main>
@@ -23,7 +22,15 @@
           <div class="col-6 col-lg-4 col-xl-6">
             <h2 class="subheading">Our Mission</h2>
             <p class="paragraph">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Rescue Ranch of Tech Elevator is the world’s leading resource for
+              pets and pet owners. Our mission is to eliminate the needless
+              euthanasia of healthy and treatable pets across the world.
+              Formerly the Righetti Ranch Humane Society, Rescue Ranch and
+              Helping Hands Pet Rescue, we joined forces in 2018 to streamline
+              services for pets and the people who love them. Founded in The
+              Blue classroom over 10 days ago, Rescue Ranch of Tech Elevator is
+              committed to ensuring every healthy or treatable companion animal
+              in our region finds a loving, adoptive home.
             </p>
           </div>
 
@@ -42,26 +49,26 @@
               @sliding-end="onSlideEnd"
             >
               <b-carousel-slide
-                caption="First slide"
-                text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                caption="Join the Team Today"
+                text="Apply To volunteer and become part of our family."
                 img-src="https://www.halifaxhumanesociety.org/zupload/site-options/pet-adoption-img1.jpg"
               ></b-carousel-slide>
 
               <b-carousel-slide
-                caption="Second slide"
-                text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                caption="You can make a difference"
+                text="Our goal is to provide animals in need with the love and care they need."
                 img-src="https://ffwallpaper.com/thumb/cat-and-dog/cat-and-dog-4.jpg"
               ></b-carousel-slide>
 
               <b-carousel-slide
-                caption="Third slide"
-                text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                caption="Adopt an animal"
+                text="Every adoption helps give a good home to a needy animal."
                 img-src="https://www.stageroadanimalhospital.com/files/spay-neuter-cat-memphis-vet.jpeg"
               ></b-carousel-slide>
 
               <b-carousel-slide
-                caption="Fourth slide"
-                text="Nulla vitae elit libero, a pharetra augue mollis interdum."
+                caption="Donate Today"
+                text="Your contribution can help give an animal the second chance they deserve."
                 img-src="https://ffwallpaper.com/thumb/cat-and-dog/cat-and-dog-11.jpg"
               ></b-carousel-slide>
             </b-carousel>
@@ -69,19 +76,17 @@
         </div>
         <div class="row-director">
           <div
-            class="fluid
+            class="
+              fluid
               subyellow
-              col-12 
-              col-sm-12 
-              col-md-12 
-              col-lg-12 
-              col-xl-12 
-              col-xxl-12"
+              col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12
+            "
           >
-          <a class="yunderline" href="AllPets"><h2 class="subyellow">Adopt a Pet Today!</h2></a>
+            <a class="yunderline" href="AllPets"
+              ><h2 class="subyellow">Adopt a Pet Today!</h2></a
+            >
           </div>
-          <div class="d-flex 
-          justify-content-space-evenly">
+          <div class="d-flex justify-content-space-evenly">
             <div class="row adopt">
               <div class="col-12">
                 <img
@@ -90,7 +95,9 @@
                   alt=""
                   srcset=""
                 />
-                <a class="yunderline" href="Cats"><h2 class="subyellow">Cats</h2></a>
+                <a class="yunderline" href="Cats"
+                  ><h2 class="subyellow">Cats</h2></a
+                >
               </div>
             </div>
             <div class="row adopt">
@@ -101,7 +108,9 @@
                   alt=""
                   srcset=""
                 />
-                <a class="yunderline" href="Dogs"><h2 class="subyellow">Dogs</h2></a>
+                <a class="yunderline" href="Dogs"
+                  ><h2 class="subyellow">Dogs</h2></a
+                >
               </div>
             </div>
             <div class="row adopt">
@@ -112,7 +121,9 @@
                   alt=""
                   srcset=""
                 />
-                <a class="yunderline" href="Others"><h2 class="subyellow">Other Animals</h2></a>
+                <a class="yunderline" href="Others"
+                  ><h2 class="subyellow">Other Animals</h2></a
+                >
               </div>
             </div>
           </div>
@@ -130,16 +141,23 @@
             <h2 class="subheading">About The Team</h2>
             <a name="A"></a>
             <p class="paragraph">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+              We practice responsible and innovative ways to reduce animal
+              overpopulation in shelters, rescue and rehabilitate critically
+              injured and neglected animals, and connect the community to
+              services that enable animals to remain in their homes. Together we
+              are advocates, rescuers, and educators. Together we make a
+              difference. Why do we do what we do? Because they deserve a Second
+              Chance.
             </p>
-            <a class="subheading" href="/MeetTheTeam"><h2 class="subheading">Click To Meet The Team</h2></a>
+            <a class="subheading" href="/LoggedInMeetTheTeam"
+              ><h2 class="subheading">Click To Meet The Team</h2></a
+            >
           </div>
         </div>
       </main>
     </body>
     <footer-default />
   </div>
-
 </template>
 
 <script>
@@ -147,10 +165,9 @@ import FooterDefault from "../components/FooterDefault";
 import LoggedInNavbar from "../components/LoggedInNavbar";
 
 export default {
-  components: { FooterDefault, LoggedInNavbar }
+  components: { FooterDefault, LoggedInNavbar },
 };
 </script>
 
 <style>
-
 </style>
