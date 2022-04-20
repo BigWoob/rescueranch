@@ -26,9 +26,11 @@ public class AccessController {
         private AdoptionDao adoptionDao;
         private EmailServiceImpl emailService;
         private final String header = "Rescue Ranch: Application Approved!";
+        private final String rejectionHeader = "Rescue Ranch: Application Status Change";
         private final String adoptionBody = "Congratulations! Your adoption application for a pet Rescue Ranch has been approved! We will contact you within 48 hours to follow up on next steps!";
         private final String volunteerBody = "Congratulations! Your volunteer application for Rescue Ranch has been approved! Please proceed to login at https://www.rescueranch.io/login";
-
+        private final String rejectionBody = "Unfortunately your application to become a volunteer at Rescue Ranch has been rejected.\n This is not a final rejection, and we do consider repeat applicants, however, we recommend spending at least 6 months between applications. We greatly appreciate your interest in joining our team!";
+        private final String adoptionRejection = "Unfortunately, we are not able to approve your adoption application at this time.";
 
 
         public AccessController(PetDao petDao, AccountDao accountDao, AdoptionDao adoptionDao, EmailServiceImpl emailService) {
@@ -83,7 +85,10 @@ public class AccessController {
 
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/deny/{id}", method = RequestMethod.PUT)
-        public boolean deny(@PathVariable Long id){return accountDao.denyApplicant(id);}
+        public boolean deny(@PathVariable Long id){
+                String email = accountDao.getAccount(id).getEmail();
+                emailService.sendSimpleMessage(email,rejectionHeader, rejectionBody);
+                return accountDao.denyApplicant(id);}
 
         @RequestMapping(value = "/rancherlist", method = RequestMethod.GET)
         public List<Account> getAllRanchers() {return accountDao.getAllRanchers();}
@@ -105,6 +110,17 @@ public class AccessController {
                 return adoptionDao.approveAdoption(id);
         }
 
+        /*
+        @PreAuthorize("hasRole('ADMIN')")
+        @RequestMapping(value = "/rejectadoption/{id}", method = RequestMethod.PUT)
+        public boolean rejectAdoption(@PathVariable Long id){
+                String email = adoptionDao.getApplicationById(id).getAdopter_email();
+                emailService.sendSimpleMessage(email,rejectionHeader, rejectionBody);
+                return adoptionDao.rejectAdoption(id);
+        }
+
+         */
+        
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/removeuser/{id}", method = RequestMethod.PUT)
         public boolean removeUser(@PathVariable Long id){return accountDao.removeUser(id);}

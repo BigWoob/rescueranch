@@ -65,8 +65,10 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> findAll(){
         List<Pet> allPets = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
-                     "FROM pets; ";
+        String sql = "SELECT DISTINCT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
+                     "FROM pets "+
+                     "LEFT OUTER JOIN adoption_applications ON pets.pet_id = adoption_applications.adoption_application_pet_id " +
+                     "WHERE pet_id NOT IN (SELECT adoption_applications.adoption_application_pet_id FROM adoption_applications WHERE adoption_applications.adoption_status ILIKE '%approved%');";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -78,9 +80,10 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> findAllDogs(){
         List<Pet> dogs = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
+        String sql = "SELECT DISTINCT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
                      "FROM pets " +
-                     "WHERE animal_type LIKE '%dog%';";
+                     "LEFT OUTER JOIN adoption_applications ON pets.pet_id = adoption_applications.adoption_application_pet_id " +
+                     "WHERE animal_type ILIKE '%dog%' AND pet_id NOT IN (SELECT adoption_applications.adoption_application_pet_id FROM adoption_applications WHERE adoption_applications.adoption_status ILIKE '%approved%');";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -91,9 +94,10 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> findAllCats(){
         List<Pet> cats = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
+        String sql = "SELECT DISTINCT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
                      "FROM pets " +
-                     "WHERE animal_type LIKE '%cat%';";
+                     "LEFT OUTER JOIN adoption_applications ON pets.pet_id = adoption_applications.adoption_application_pet_id " +
+                     "WHERE animal_type ILIKE '%cat%' AND pet_id NOT IN (SELECT adoption_applications.adoption_application_pet_id FROM adoption_applications WHERE adoption_applications.adoption_status ILIKE '%approved%');";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -104,9 +108,10 @@ public class JdbcPetDao implements PetDao{
 
     public List<Pet> findAllOtherAnimals(){
         List<Pet> otherAnimals = new ArrayList<>();
-        String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
+        String sql = "SELECT DISTINCT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three " +
                      "FROM pets " +
-                     "WHERE animal_type NOT LIKE '%cat%' AND animal_type NOT LIKE '%dog%';";
+                     "LEFT OUTER JOIN adoption_applications ON pets.pet_id = adoption_applications.adoption_application_pet_id " +
+                     "WHERE animal_type NOT ILIKE '%cat%' AND animal_type NOT ILIKE '%dog%' AND pet_id NOT IN (SELECT adoption_applications.adoption_application_pet_id FROM adoption_applications WHERE adoption_applications.adoption_status ILIKE '%approved%');";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Pet pet = mapRowToPet(results);
@@ -119,7 +124,8 @@ public class JdbcPetDao implements PetDao{
         List<Pet> searchResults = new ArrayList<>();
         String sql = "SELECT pet_id, animal_type, gender, pet_name, breed, age, description, available, picture_one, picture_two, picture_three "+
                      "FROM pets " +
-                     "WHERE animal_type ILIKE ? OR pet_name ILIKE ? OR breed ILIKE ? OR description ILIKE ?;";
+                     "LEFT OUTER JOIN adoption_applications ON pets.pet_id = adoption_applications.adoption_application_pet_id " +
+                     "WHERE (animal_type ILIKE ? OR pet_name ILIKE ? OR breed ILIKE ? OR description ILIKE ?) AND pet_id NOT IN (SELECT adoption_applications.adoption_application_pet_id FROM adoption_applications WHERE adoption_applications.adoption_status ILIKE '%approved%');";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,"%"+input+"%","%"+input+"%","%"+input+"%","%"+input+"%");
 
         while(results.next()){

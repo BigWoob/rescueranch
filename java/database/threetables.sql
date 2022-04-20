@@ -114,7 +114,7 @@ DROP TABLE IF EXISTS adoption_applications CASCADE;
 
 CREATE TABLE adoption_applications(
 	adoption_application_id serial UNIQUE,
-	adoption_application_pet_id int NOT NULL UNIQUE,
+	adoption_application_pet_id int NOT NULL,
 	adopter_email VARCHAR(250) NOT NULL,
 	adopter_phone_number VARCHAR(10) NOT NULL,
 	adopter_name VARCHAR(250) NOT NULL,
