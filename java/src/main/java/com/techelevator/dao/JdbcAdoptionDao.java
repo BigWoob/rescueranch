@@ -67,7 +67,7 @@ public class JdbcAdoptionDao implements AdoptionDao{
                      "(adoption_application_pet_id, adopter_email, adopter_phone_number, adopter_name, adoption_status) "+
                      "VALUES (?, ?, ?, ?, ?) "+
                      "RETURNING adoption_application_id;";
-        Long newId = jdbcTemplate.queryForObject(sql, Long.class, adoptionApplication.getAdoption_pet_id(), adoptionApplication.getAdopter_email(), adoptionApplication.getAdopter_phone_number(), adoptionApplication.getAdopter_name(), adoptionApplication.getAdoption_status());
+        Long newId = jdbcTemplate.queryForObject(sql, Long.class, adoptionApplication.getAdoption_pet_id(), adoptionApplication.getAdopter_email(), adoptionApplication.getAdopter_phone_number(), adoptionApplication.getAdopter_name(), "approved");
 
         if(newId != null){
             newAdoptionApplication = getApplicationById(newId);
