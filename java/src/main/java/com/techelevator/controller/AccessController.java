@@ -73,10 +73,11 @@ public class AccessController {
 
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/approve/{id}", method = RequestMethod.POST)
-        public boolean approve(@PathVariable Long id){
+        public List<Account> approve(@PathVariable Long id){
                 String email = accountDao.getAccount(id).getEmail();
                 emailService.sendSimpleMessage(email,header,volunteerBody);
-                return accountDao.acceptApplicant(id);
+                accountDao.acceptApplicant(id);
+                return accountDao.getApplicants();
         }
 
         @PreAuthorize("permitAll")
@@ -85,10 +86,11 @@ public class AccessController {
 
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/deny/{id}", method = RequestMethod.PUT)
-        public boolean deny(@PathVariable Long id){
+        public List<Account> deny(@PathVariable Long id){
                 String email = accountDao.getAccount(id).getEmail();
                 emailService.sendSimpleMessage(email,rejectionHeader, rejectionBody);
-                return accountDao.denyApplicant(id);
+                accountDao.denyApplicant(id);
+                return accountDao.getApplicants();
         }
 
         @RequestMapping(value = "/rancherlist", method = RequestMethod.GET)

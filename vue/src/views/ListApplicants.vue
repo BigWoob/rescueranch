@@ -20,8 +20,8 @@
           <p>{{ applicant.email }}</p>
           <p>Username: {{ applicant.username }}</p>
 
-          <button v-on:click="approveApplicant(applicant.id);">APPROVE</button>
-          <button v-on:click="denyApplicant(applicant.id)">DENY</button>
+          <button v-on:click.prevent="approveApplicant(applicant.id)">APPROVE</button>
+          <button v-on:click.prevent="denyApplicant(applicant.id)">DENY</button>
         </div>
       </div>
     </form>
@@ -51,29 +51,17 @@ export default {
 
   methods: {
     approveApplicant(id) {
-      let results = [];
-      for (let i = 0; i < this.applicants.length; i++) {
-        if (this.applicants[i].id == id) {
-          "";
-        }
-        results.push(this.applicants[i]);
-
-      }
-      this.applicants = results
-
-      ApplicantService.approveApplicant(id);
+      ApplicantService.approveApplicant(id).then((response) => {
+      this.applicants = response.data;
+    });
      
      },
       
     denyApplicant(id) {
-      ApplicantService.denyApplicant(id);
-    this.applicants = this.applicants.filter((e) => {
-        if (id != e.id) {
-          return this.applicants;
-      }
-    
-      })
-    },
+      ApplicantService.denyApplicant(id).then((response) => {
+      this.applicants = response.data;
+    });
+  }
   }
 };
 </script>
