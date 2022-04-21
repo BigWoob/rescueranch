@@ -41,7 +41,7 @@
         </b-nav-item-dropdown>
 
         <b-nav-item-dropdown text="Volunteer" right>
-          <b-dropdown-item navbar-item href="/ApplyToVolunteer"
+          <b-dropdown-item href="/ApplyToVolunteer"
             >Join The Team</b-dropdown-item
           >
           <b-dropdown-item href="/MeetTheTeam">Meet The Team</b-dropdown-item>
@@ -100,12 +100,12 @@ export default {
 }
 
 .show {
-  background-color: rgb(155, 34, 38);
+  background-color: rgb(255, 255, 230);
   border-radius: 10px;
-  color: rgb(255, 255, 230) !important;
 }
-b-dropdown-item {
-  color: rgb(255, 255, 230) !important;
+
+.dropdown-item {
+  color: rgb(155, 34, 38);
 }
 
 .smarthome {
@@ -121,4 +121,8 @@ a:hover {
   text-decoration: none;
 }
 
+.dropdown-item:hover {
+  background-color: rgb(155, 34, 38);
+  color: rgb(255, 255, 230);
+}
 </style>

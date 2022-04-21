@@ -2,9 +2,10 @@
   <div>
     <header-default />
     <navbar />
+    <h2 class="subheading">Adopt a Pet Applicant Form</h2>
 
      <form v-on:submit.prevent="submitForm" class="ApplyToVolunteer">
-      
+       <div class="d-flex adopt-form">
             <div class="form-group col-md-6">
               <label for="adopterEmail">Email</label>
               <input
@@ -17,7 +18,7 @@
               />
             </div>
 
-             <div class="form-group col-md-6">
+             <div class="form-group col-md-6 ">
               <label for="adopterPhoneNumber">Phone Number (10 Digits)</label>
               <input
                 type="tel"
@@ -31,7 +32,6 @@
               />
             </div>
 
-        <div class="form-row">
           <div class="form-group col-md-6">
             <label for="adopterName">Your Name</label>
             <input
@@ -43,8 +43,10 @@
               required
             />
           </div>
-        </div>
+          <div class="submit-btn">
         <input type="submit" value="Submit" />
+          </div>
+        </div>
       </form>
     <footer-default />
   </div>
@@ -63,8 +65,6 @@ export default {
     return {
         pet: {},
         AdoptionApplication: {},
-      
-      //errorMsg: ""
     };
   },
 
@@ -81,18 +81,16 @@ export default {
   };
 
     if (newApplicant) {
-        // add
         petService
           .applyToAdopt(newApplicant)
           .then(response => {
             if (response.status === 200) {
-              this.$router.push('/thankyou');
+              this.$router.push('/thankadopt');
             }
           });
     }
     }
   },
-          //cancel form button
 
  created() {
     petService.getPetById(this.$route.params.id).then((response) => {
@@ -106,4 +104,12 @@ export default {
 </script>
 
 <style>
+.adopt-form {
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit-btn {
+  padding-bottom: 10px;
+}
 </style>

@@ -48,6 +48,7 @@ export default {
   margin: 1px 0px 1px 0px;
   text-transform: capitalize;
   font-weight: bold;
+  font-size: 20px;
 }
 
 .col-4 > img {

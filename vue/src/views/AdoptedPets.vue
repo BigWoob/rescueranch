@@ -3,6 +3,7 @@
     <header-default />
     <navbar class="sticky-top"/>
     <vue-firework />
+
     <div>
 
     <div class="mission">
@@ -22,6 +23,7 @@
     </div>
   </div>
     <footer-default />
+    
   </div>
 </template>
 
@@ -50,6 +52,5 @@ export default {
 </script>
 
 <style>
-
 
 </style>

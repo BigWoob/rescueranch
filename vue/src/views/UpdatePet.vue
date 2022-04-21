@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-default />
-    <navbar />
+    <logged-in-navbar />
     <div>
       <h2 class="subheading indiName">{{ pet.petName }}</h2>
     </div>
@@ -110,17 +110,17 @@
 <script>
 import FooterDefault from "../components/FooterDefault.vue";
 import HeaderDefault from "../components/HeaderDefault.vue";
-import Navbar from "../components/Navbar.vue";
+import LoggedInNavbar from "../components/LoggedInNavbar.vue";
 import petService from "../services/PetService";
 export default {
-  components: { HeaderDefault, Navbar, FooterDefault },
+  components: { HeaderDefault, LoggedInNavbar, FooterDefault },
   data() {
     return {
       name: "petinfo",
       pet: {
         animalType: "{{pet.animalType}}",
         animalGender: "{{pet.animalGender",
-        petName: '{{pet.petName}}',
+        petName: "{{pet.petName}}",
         petBreed: "pet.petBreed",
         age: "pet.age",
         animalDescription: "Description Coming Soon",
@@ -132,7 +132,7 @@ export default {
     };
   },
 
-   methods: {
+  methods: {
     submitForm() {
       const newPet = {
         animalType: this.pet.animalType,
