@@ -20,18 +20,8 @@
           <p>{{ applicant.email }}</p>
           <p>Username: {{ applicant.username }}</p>
 
-          <!-- <form style="display: inline" action="#" method="approveApplicant({{applicant.id}})">
-  <button>Approve</button>
-</form>
-     
-         <form style="display: inline" action="#" method="deleteApplicant(applicant.id)">
-  <button>Delete</button>
-</form>
-      -->
-
-
-          <button v-on:click="approveApplicant(applicant.id)">APPROVE</button>
-          <button v-on:click="denyApplicant(applicant.id)">DENY</button> 
+          <button v-on:click="approveApplicant(applicant.id);">APPROVE</button>
+          <button v-on:click="denyApplicant(applicant.id)">DENY</button>
         </div>
       </div>
     </form>
@@ -43,7 +33,7 @@
 import HeaderDefault from "../components/HeaderDefault.vue";
 import ApplicantService from "../services/ApplicantService";
 import FooterDefault from "../components/FooterDefault";
-import LoggedInNavbar from '../components/LoggedInNavbar.vue';
+import LoggedInNavbar from "../components/LoggedInNavbar.vue";
 
 export default {
   components: { HeaderDefault, FooterDefault, LoggedInNavbar },
@@ -59,14 +49,27 @@ export default {
     });
   },
 
-  methods: { 
-    approveApplicant(id){
-    ApplicantService.approveApplicant(id)
+  methods: {
+    approveApplicant(id) {
+      ApplicantService.approveApplicant(id).then((response) => {
+      this.applicants = response.data;
+    });
   },
-  denyApplicant(id){
-    ApplicantService.denyApplicant(id)
-  },
-  }};
+      
+    
+    },
+      
+    denyApplicant(id) {
+      ApplicantService.denyApplicant(id);
+    this.applicants = this.applicants.filter((e) => {
+        if (id != e.id) {
+          return this.applicants;
+      }
+       
+      })
+    },
+ 
+};
 </script>
 
 <style>

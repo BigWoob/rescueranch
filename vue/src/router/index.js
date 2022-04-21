@@ -23,6 +23,8 @@ import Adopt from '../views/Adopt.vue'
 import UpdatePet from '../views/UpdatePet.vue'
 import LoggedInMeetTheTeam from '../views/LoggedInMeetTheTeam.vue'
 import AdoptedPets from '../views/AdoptedPets.vue'
+import ThankAdopt from '../views/ThankAdopt.vue'
+import ThankDono from '../views/ThankDono.vue'
 import store from '../store/index'
 
 
@@ -216,6 +218,22 @@ const router = new Router({
 
             meta: {
                 requiresAuth: true
+            }
+        },
+        {
+            path: "/thankadopt",
+            name: "thankadopt",
+            component: ThankAdopt,
+            meta: {
+                requiresAuth: false
+            }
+        },
+        {
+            path: "/thankdono",
+            name: "thankdono",
+            component: ThankDono,
+            meta: {
+                requiresAuth: false
             }
         },
         {

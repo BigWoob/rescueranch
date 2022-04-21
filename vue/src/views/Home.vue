@@ -30,8 +30,8 @@
               in our region finds a loving, adoptive home.
             </p>
             <a class="subheading" href="/ApplyToVolunteer">
-            <h2 class="subheading">Join The Team Today!</h2></a>
-
+              <h2 class="subheading">Join The Team Today!</h2></a
+            >
           </div>
 
           <div class="col-sm-6 col-lg-8 col-xl-6">
@@ -146,7 +146,8 @@
               injured and neglected animals, and connect the community to
               services that enable animals to remain in their homes. Together we
               are advocates, rescuers, and educators. Together we make a
-              difference. Why do we do what we do? Because they deserve a Second Chance.
+              difference. Why do we do what we do? Because they deserve a Second
+              Chance.
             </p>
             <a class="subheading" href="/MeetTheTeam"
               ><h2 class="subheading">Click To Meet The Team</h2></a
@@ -169,6 +170,26 @@ export default {
 </script>
 
 <style>
+.carousel-caption h3 {
+  font-family: Garamond;
+  font-size: 3em;
+  color: rgb(155, 34, 38) !important;
+  text-shadow: black 1px 0px 0px, black 0.540302px 0.841471px 0px,
+    black -0.416147px 0.909297px 0px, black -0.989992px 0.14112px 0px,
+    black -0.653644px -0.756802px 0px, black 0.283662px -0.958924px 0px,
+    black 0.96017px -0.279416px 0px;
+}
+
+.carousel-caption p {
+  font-family: Garamond;
+  font-size: 2em;
+  color: rgb(255, 255, 230) !important;
+  text-shadow: black 1px 0px 0px, black 0.540302px 0.841471px 0px,
+    black -0.416147px 0.909297px 0px, black -0.989992px 0.14112px 0px,
+    black -0.653644px -0.756802px 0px, black 0.283662px -0.958924px 0px,
+    black 0.96017px -0.279416px 0px;
+}
+
 .image {
   border: 10px solid rgb(255, 255, 230);
   border-radius: 50px;

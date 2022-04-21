@@ -46,7 +46,11 @@
           </div>
 
           <label for="animalGender">Choose a gender:</label>
-          <select v-model="pet.animalGender" id="animalGender" name="animalGender">
+          <select
+            v-model="pet.animalGender"
+            id="animalGender"
+            name="animalGender"
+          >
             <option value="m">Male</option>
             <option value="f">Female</option>
           </select>
@@ -89,11 +93,11 @@
 
           <label for="available">Available Now:</label>
           <select v-model="pet.available" id="available" name="available">
-            <option value=true>Yes</option>
-            <option value=false>No</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
           </select>
           <input type="submit" value="Submit" />
-        </div> 
+        </div>
       </form>
     </div>
     <footer-default />
@@ -103,7 +107,7 @@
 <script>
 import FooterDefault from "../components/FooterDefault";
 import HeaderDefault from "../components/HeaderDefault.vue";
-import LoggedInNavbar from '../components/LoggedInNavbar.vue';
+import LoggedInNavbar from "../components/LoggedInNavbar.vue";
 import PetService from "../services/PetService";
 
 export default {
@@ -119,9 +123,9 @@ export default {
         age: "",
         animalDescription: "Description Coming Soon",
         available: "",
-        pictureOne: "https://1.bp.blogspot.com/-AzSTfPrkhSY/WkrdSHwgxkI/AAAAAAAAARI/L_3p6sG_CK8UgGpgXyTRXaKtG9O7KUCWACLcBGAs/s320/unnamed.png",
+        pictureOne:
+          "https://1.bp.blogspot.com/-AzSTfPrkhSY/WkrdSHwgxkI/AAAAAAAAARI/L_3p6sG_CK8UgGpgXyTRXaKtG9O7KUCWACLcBGAs/s320/unnamed.png",
       },
-      //errorMsg: ""
     };
   },
 
@@ -130,8 +134,6 @@ export default {
   methods: {
     submitForm() {
       const newPet = {
-        //boardId: Number(this.$route.params.boardID),
-        //dont know what is after the .
         animalType: this.pet.animalType,
         animalGender: this.pet.animalGender,
         petName: this.pet.petName,
@@ -140,22 +142,14 @@ export default {
         animalDescription: this.pet.animalDescription,
         available: Boolean(this.pet.available),
         pictureOne: this.pet.pictureOne,
-        //confirmation
       };
 
       if (newPet) {
-        // add
         PetService.addPet(newPet).then((response) => {
           if (response.status === 200) {
             this.$router.push("/confirmpet");
           }
         });
-        // .catch(error => {
-        //   this.handleErrorResponse(error, "adding");
-        // });
-        //cancel form button
-
-        //created() {},
       }
     },
   },
