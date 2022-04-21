@@ -12,7 +12,7 @@
         <div
           class="applicant"
           v-for="applicant in applicants"
-          v-bind:key="applicant.applicantId"
+          v-bind:key="applicant"
           v-bind:applicant="applicant"
         >
           <h4>{{ applicant.fullname }}</h4>
@@ -51,13 +51,19 @@ export default {
 
   methods: {
     approveApplicant(id) {
-      ApplicantService.approveApplicant(id).then((response) => {
-      this.applicants = response.data;
-    });
-  },
-      
-    
-    },
+      let results = [];
+      for (let i = 0; i < this.applicants.length; i++) {
+        if (this.applicants[i].id == id) {
+          "";
+        }
+        results.push(this.applicants[i]);
+
+      }
+      this.applicants = results
+
+      ApplicantService.approveApplicant(id);
+     
+     },
       
     denyApplicant(id) {
       ApplicantService.denyApplicant(id);
@@ -65,10 +71,10 @@ export default {
         if (id != e.id) {
           return this.applicants;
       }
-       
+    
       })
     },
- 
+  }
 };
 </script>
 
