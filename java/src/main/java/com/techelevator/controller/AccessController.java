@@ -87,7 +87,7 @@ public class AccessController {
         @RequestMapping(value = "/deny/{id}", method = RequestMethod.PUT)
         public boolean deny(@PathVariable Long id){
                 String email = accountDao.getAccount(id).getEmail();
-                             emailService.sendSimpleMessage(email,rejectionHeader, rejectionBody);
+                emailService.sendSimpleMessage(email,rejectionHeader, rejectionBody);
                 return accountDao.denyApplicant(id);
         }
 
@@ -110,18 +110,20 @@ public class AccessController {
 
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/approveadoption/{id}", method = RequestMethod.PUT)
-        public boolean approveAdoption(@PathVariable Long id){
+        public List<AdoptionApplication> approveAdoption(@PathVariable Long id){
                 String email = adoptionDao.getApplicationById(id).getAdopter_email();
                 emailService.sendSimpleMessage(email,header,adoptionBody);
-                return adoptionDao.approveAdoption(id);
+                adoptionDao.approveAdoption(id);
+                return getAllAdoptionApplications();
         }
 
         @PreAuthorize("hasRole('ADMIN')")
         @RequestMapping(value = "/rejectadoption/{id}", method = RequestMethod.PUT)
-        public boolean rejectAdoption(@PathVariable Long id){
+        public List<AdoptionApplication> rejectAdoption(@PathVariable Long id){
                 String email = adoptionDao.getApplicationById(id).getAdopter_email();
                 emailService.sendSimpleMessage(email,rejectionHeader, rejectionBody);
-                return adoptionDao.rejectAdoption(id);
+                adoptionDao.rejectAdoption(id);
+                return getAllAdoptionApplications();
         }
 
         @PreAuthorize("hasRole('ADMIN')")
